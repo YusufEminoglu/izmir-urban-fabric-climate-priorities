@@ -1,61 +1,146 @@
-# ICUS 2026 PlanX Urban Resilience Paper
+# Open-Source Urban Analytics for Climate-Resilience Screening
 
-**Project phase:** abstract-first congress preparation  
-**Venue:** 11. Kent Arastirmalari Kongresi / ICUS 2026  
-**Main theme:** Iklim Degisikligine Direncli Kentler  
-**Project root:** `C:\Users\YE\PyCharmMiscProject\icus2026_planx_urban_resilience`  
-**Candidate method backbone:** QGIS + PlanX urban analytics ecosystem, narrated through PlanX Urban Resilience  
-**Plugin path:** `C:\Users\YE\PyCharmMiscProject\qgis_plugins\planx_urban_resilience`
-**Student collaborator:** Halil Topcu, urban design master's student at Izmir Demokrasi University
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Python 3.12](https://img.shields.io/badge/Python-3.12-blue.svg)](https://www.python.org/)
+[![QGIS 3.34+](https://img.shields.io/badge/QGIS-3.34%2B-green.svg)](https://qgis.org/)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.20753131.svg)](https://doi.org/10.5281/zenodo.20753131)
 
-This folder is structured like the BBTMK workflow, but starts smaller because the immediate target is a 500-750 word abstract. If the abstract is accepted, the same folder can expand into the full-text, slide, QGIS, and reproducibility package workflow.
+This repository provides the open-source code, spatial analytical pipeline, and processed data for the metropolitan-scale climate-resilience screening framework applied to the İzmir functional urban region.
 
-## Working Position
+---
 
-The strongest direction is not simply "a paper introducing a plugin." A stronger academic framing is:
+## 📌 Research Overview
 
-> An open-source, QGIS-based urban morphology and street-tissue workflow for reading climate-related resilience capacity across contrasting urban fabrics, narrated through PlanX Urban Resilience on a real city case.
+Urban climate adaptation requires balancing multiple competing physical and social vulnerabilities across heterogenous urban fabrics. This repository contains the reproducible two-stage **explain-then-optimize** analytics pipeline:
 
-This keeps PlanX central while avoiding a purely promotional tone. The method should be transparent enough that reviewers see it as a planning-support and urban-design research workflow, not a black-box software demo.
+1. **Unsupervised Morphometric Typology & Explainable ML:**
+   - Evaluates 13 physical urban form indicators (coverage, FAR, street network centrality, green fraction, slope) and 2 regional context metrics (coastal distance, core distance) across 3,777 contiguous 250 m cells.
+   - Fits XGBoost + TreeSHAP models to disentangle nonlinear heat-morphology interactions and coastal cooling buffers.
 
-## Folder Map
+2. **Multi-Objective Spatial Prioritization (Pareto & TOPSIS):**
+   - Screens target areas across five vulnerability/exposure axes (heat, cooling deficit, access deficit, coastal exposure, and social vulnerability).
+   - Combines a 5D Pareto dominance filter with entropy-weighted TOPSIS and 2,000-run Monte Carlo robustness testing to establish robust priority tiers.
 
-```text
-icus2026_planx_urban_resilience/
-|-- abstracts/                 # abstract outlines, drafts, CMT-ready checks
-|-- data/                      # raw/interim/processed inputs and outputs
-|-- docs/
-|   |-- congress/              # scraped ICUS 2026 briefing
-|   |-- methodology/           # PlanX and open-source method notes
-|   |-- notes/                 # decisions, open questions
-|   |-- submission/            # CMT and format checklist
-|   `-- manuscript/            # later full-text track
-|-- logs/                      # processing logs and validation notes
-|-- outputs/
-|   |-- figures/
-|   `-- tables/
-|-- qgis/
-|   `-- styles/
-|-- src/                       # optional reproducibility scripts
-`-- project_guide.md
+---
+
+## 📁 Repository Structure
+
+```
+explainable-urban-resilience-screening/
+├── CITATION.cff            # Citation File Format metadata
+├── LICENSE                 # MIT Open-Source License
+├── README.md               # Repository documentation
+├── requirements.txt        # Python package environment
+├── data/
+│   └── 03_processed/       # Processed cell-level indicators (3,777 cells)
+│       └── cell_indicators.csv
+├── outputs/
+│   ├── figures/            # Generated high-resolution manuscript figures
+│   └── tables/             # Exported statistical summary tables (CSV)
+├── qgis/
+│   └── README.md           # QGIS PlanX processing plugin workflow guide
+├── references/             # Verified literature mapping index
+└── scripts/                # Reproducible Python processing pipeline
+    ├── pilot_01_build_grid.py        # Analysis grid construction (250m)
+    ├── pilot_02_enrich.py            # Indicator extraction & spatial joins
+    ├── pilot_03_strata.py            # Planning strata definition
+    ├── pilot_05_indicators.py        # Cell-level indicator synthesis
+    ├── pilot_06_lst.py               # Summer LST satellite processing
+    ├── pilot_07_cluster.py           # Hierarchical morphometric clustering
+    ├── pilot_08_scale_stability.py   # Multi-scale MAUP sensitivity (250m vs 500m)
+    ├── pilot_09_shap.py              # TreeSHAP global feature attribution & heatmap
+    ├── pilot_10_vulnerability.py     # Social vulnerability operationalization
+    ├── pilot_11_priority.py         # TOPSIS ranking & Monte Carlo sensitivity
+    ├── pilot_13_cell_pareto.py       # 5D Pareto frontier extraction & mapping
+    ├── make_elite_morphology_maps.py # High-resolution spatial mapping
+    ├── make_elite_statistical_collage.py # Nonlinear interaction diagnostics
+    └── generate_all_figures.py       # Master figure generation pipeline
 ```
 
-## Empirical pilot
+---
 
-The journal-track empirical analysis runs in a project-local Python environment
-(`.venv`, Python 3.12) over a 250 m grid of the İzmir functional urban region.
-**Resume guide and full pipeline status:** [`docs/PILOT_PROGRESS.md`](docs/PILOT_PROGRESS.md).
-Data provenance: [`data/01_raw/PROVENANCE.md`](data/01_raw/PROVENANCE.md). Pipeline
-scripts: `scripts/pilot_0*.py`.
+## ⚙️ Installation & Environment Setup
 
-## Immediate Work
+### 1. Clone the Repository
+```bash
+git clone https://github.com/YusufEminoglu/explainable-urban-resilience-screening.git
+cd explainable-urban-resilience-screening
+```
 
-1. Decide the exact case study geography, sample areas, and analysis unit.
-2. Freeze the PlanX plugin version and record the algorithm chain.
-3. Build a compact abstract argument: problem, aim, method, expected/initial outputs, originality.
-4. Prepare Turkish and English title, abstract, and keywords.
-5. Submit via CMT before **29 June 2026**.
+### 2. Environment Setup
+Create a Python 3.10+ virtual environment and install dependencies:
 
-## Authoring Rule
+```bash
+python -m venv .venv
+# On Windows:
+.venv\Scripts\activate
+# On Linux/macOS:
+source .venv/bin/activate
 
-The congress ethics text is strict about AI-generated content. Treat AI support in this folder as planning, organization, quality control, and critique. The final submitted abstract/full text should be author-owned, verified, and rewritten in the author's own academic voice.
+pip install -r requirements.txt
+```
+
+---
+
+## 🚀 Quickstart & Reproduction
+
+To reproduce all figures and statistical tables from the raw indicators:
+
+```bash
+# Run complete figure generation pipeline
+python scripts/generate_all_figures.py
+```
+
+Individual pipeline stages can be executed standalone:
+```bash
+# Run hierarchical clustering diagnostic (Figure 6)
+python scripts/pilot_07_cluster.py
+
+# Run TreeSHAP attribution & heatmap (Figure 7)
+python scripts/pilot_09_shap.py
+
+# Run non-linear SHAP interaction plots (Figure 8)
+python scripts/make_elite_statistical_collage.py
+
+# Run Pareto frontier mapping (Figure 10)
+python scripts/pilot_13_cell_pareto.py
+
+# Run TOPSIS Monte Carlo robustness (Figure 11)
+python scripts/make_fig11_topsis_robustness.py
+```
+
+---
+
+## 📊 Data Availability & Sources
+
+All analytical steps rely on open-source, publicly accessible datasets:
+- **Urban Form & Street Networks:** OpenStreetMap (OSM) via `OSMnx` & official IMM municipal layers.
+- **Land Cover & Canopy:** ESA WorldCover 2021 (10m resolution).
+- **Surface Temperature (LST):** Landsat 8/9 Collection 2 Tier 1 via Google Earth Engine (Multi-year summer mean 2014–2024).
+- **Topography:** Copernicus GLO-30 DEM.
+- **Demographics:** TurkStat ADNKS population register.
+
+---
+
+## 📖 Citation
+
+If you find this codebase or methodology useful in your research, please cite:
+
+```bibtex
+@misc{eminoglu2026planx,
+  author       = {Eminoglu, Yusuf},
+  title        = {{PlanX}},
+  year         = {2026},
+  month        = {6},
+  version      = {v4.10},
+  publisher    = {Zenodo},
+  doi          = {10.5281/zenodo.20753131},
+  url          = {https://doi.org/10.5281/zenodo.20753131}
+}
+```
+
+---
+
+## 📜 License
+
+This project is licensed under the **MIT License** - see the [LICENSE](LICENSE) file for details.

@@ -1,23 +1,7 @@
-# Byte-compiled / optimized / DLL files
-__pycache__/
-*.py[cod]
-*$py.class
-
-# Caches and IDEs
-.idea/
-.claude/
-.gemini/
-.vscode/
-.pytest_cache/
-.coverage
-htmlcov/
-tmp/
-scratch/
-cache/
-logs/
-reviews/
-restored_pilot13.py
-figs_current/
+# ==============================================================================
+# Git Ignore Rules for Open-Source Research Code & Reproducibility Repository
+# Repository: explainable-urban-resilience-screening
+# ==============================================================================
 
 # Virtual environments
 .venv/
@@ -25,7 +9,38 @@ venv/
 env/
 ENV/
 
-# Large / local raw GIS data & heavy archives
+# Python cache & build artifacts
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+.pytest_cache/
+.coverage
+htmlcov/
+
+# IDE & AI Assistant internal metadata / caches
+.idea/
+.claude/
+.gemini/
+.vscode/
+tmp/
+scratch/
+cache/
+logs/
+
+# EXCLUDE UNPUBLISHED EDITABLE MANUSCRIPT LATEX SOURCE & INTERNAL DRAFT NOTES
+# (Ensures compliance with journal open-science & double-blind policies)
+paper/
+abstracts/
+reviews/
+docs/revision/
+docs/submission/
+AGENTS.md
+project_guide.md
+restored_pilot13.py
+figs_current/
+
+# Heavy / local raw GIS raster & vector data (reproducible via scripts)
 data/00_external/
 data/01_raw/
 data/02_interim/
@@ -37,12 +52,10 @@ data/02_interim/
 *.tar.gz
 *.parquet
 
-# Generated outputs & backups
+# Heavy outputs & archives
 outputs/figure_gpkgs/
 outputs/*.zip
 outputs/*.tar.gz
-paper/manuscript/*.tar.gz
-paper/manuscript/src/_backup*
 
 # QGIS autosaves and temporary files
 *.qgz~
@@ -50,16 +63,3 @@ paper/manuscript/src/_backup*
 *.gpkg-wal
 *.gpkg-shm
 *.gpkg.style
-
-# LaTeX build intermediates
-paper/manuscript/src/*.aux
-paper/manuscript/src/*.log
-paper/manuscript/src/*.bbl
-paper/manuscript/src/*.blg
-paper/manuscript/src/*.fls
-paper/manuscript/src/*.fdb_latexmk
-paper/manuscript/src/*.synctex.gz
-paper/manuscript/src/*.toc
-paper/manuscript/src/*.out
-paper/manuscript/src/*.lot
-paper/manuscript/src/*.lof
