@@ -19,6 +19,6 @@ title: "Open-Source Urban Analytics for Climate-Resilience Screening: A Two-Stag
 version: "1.0.0"
 doi: "10.5281/zenodo.20753131"
 date-released: "2026-06-18"
-repository-code: "https://github.com/YusufEminoglu/explainable-urban-resilience-screening"
-url: "https://github.com/YusufEminoglu/explainable-urban-resilience-screening"
+repository-code: "https://github.com/YusufEminoglu/izmir-urban-fabric-climate-priorities"
+url: "https://github.com/YusufEminoglu/izmir-urban-fabric-climate-priorities"
 abstract: "Reproducible open-source analytical framework for metropolitan-scale climate-resilience screening. Integrates unsupervised morphometric fabric typologies, XGBoost + TreeSHAP explainable heat models, 5D Pareto dominance filtering, entropy-weighted TOPSIS, and 2,000-run Monte Carlo robustness testing across 3,777 urban cells in the İzmir metropolitan region."

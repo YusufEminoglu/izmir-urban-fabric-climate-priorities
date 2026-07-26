@@ -32,7 +32,7 @@ Urban climate adaptation requires balancing multiple competing physical and soci
 ## 📁 Repository Structure
 
 ```
-explainable-urban-resilience-screening/
+izmir-urban-fabric-climate-priorities/
 ├── CITATION.cff            # Citation File Format metadata
 ├── LICENSE                 # MIT Open-Source License
 ├── README.md               # Repository documentation
@@ -72,8 +72,8 @@ from `01`-`05` and the processed data in `data/03_processed/`.
 
 ### 1. Clone the Repository
 ```bash
-git clone https://github.com/YusufEminoglu/explainable-urban-resilience-screening.git
-cd explainable-urban-resilience-screening
+git clone https://github.com/YusufEminoglu/izmir-urban-fabric-climate-priorities.git
+cd izmir-urban-fabric-climate-priorities
 ```
 
 ### 2. Environment Setup
