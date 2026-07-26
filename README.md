@@ -41,16 +41,30 @@ explainable-urban-resilience-screening/
 │   └── 03_processed/       # Processed cell-level indicators (3,777 cells)
 │       └── cell_indicators.csv
 ├── outputs/
-│   ├── figures/            # High-resolution manuscript figures (figure1.png to figure11.png, figure_s1 to figure_s7)
+│   ├── figures/            # Manuscript figures (figure1.png-figure11.png, figure_s1.png-figure_s7.png)
 │   └── tables/             # Exported statistical summary tables (table1.csv to table8.csv)
 └── scripts/                # Reproducible Python processing pipeline
-    ├── 01_spatial_grid_processing.py      # Spatial grid construction & indicator synthesis
-    ├── 02_morphometric_typology.py        # Unsupervised morphometric clustering (Figure 6 & Table 1)
-    ├── 03_explainable_heat_attribution.py # TreeSHAP feature attribution & interactions (Figures 7, 8 & Tables 2, 3)
-    ├── 04_spatial_autocorrelation.py      # Spatial autocorrelation & LISA diagnostics (Figure 9 & Table 6)
-    ├── 05_pareto_topsis_prioritization.py # Pareto screening & TOPSIS Monte Carlo robustness (Figures 10, 11 & Tables 4, 5, 8)
-    └── run_reproduction.py                # Master reproduction entry point
+    ├── 01_spatial_grid_processing.py           # Spatial grid construction & indicator synthesis
+    ├── 02_morphometric_typology.py             # Unsupervised morphometric clustering (Figure 6 & Table 1)
+    ├── 03_explainable_heat_attribution.py      # TreeSHAP feature attribution & interactions (Figures 7, 8 & Tables 2, 3)
+    ├── 04_spatial_autocorrelation.py           # Spatial autocorrelation & LISA diagnostics (Figure 9 & Table 6)
+    ├── 05_pareto_topsis_prioritization.py      # Pareto screening & TOPSIS Monte Carlo robustness (Figures 10, 11 & Tables 4, 5, 8)
+    ├── make_fig04_fabric_comparison.py         # Figure 4: fabric-strata statistical comparison
+    ├── make_fig06_cluster_synthesis.py         # Figure 6: dendrogram, silhouette, PCA scatter
+    ├── make_fig07_shap_synthesis.py            # Figure 7: SHAP global importance & per-stratum heatmap
+    ├── make_fig08_explainable_heat_interactions.py # Figure 8: SHAP interaction diagnostics
+    ├── make_fig10_priority_synthesis.py        # Figure 10: Pareto priority synthesis
+    ├── make_fig11_topsis_robustness.py         # Figure 11: TOPSIS Monte Carlo robustness
+    └── run_reproduction.py                     # Master reproduction entry point
 ```
+
+**Reproducibility note.** Figures 1, 2, 3, 5, 9 and the seven supplementary figures
+(`figure_s1.png`-`figure_s7.png`) are exported outputs of the analysis pipeline above
+(study-area mapping, methodology diagram, tissue comparisons, raw indicator maps,
+spatial-statistics maps, and supplementary diagnostics); their standalone plotting
+scripts are still being cleaned up for release and are not yet included in
+`scripts/`. All underlying numerical results for every figure are fully reproducible
+from `01`-`05` and the processed data in `data/03_processed/`.
 
 ---
 
