@@ -1,0 +1,313 @@
+ICUS 2026 Abstract Review Report
+================================================================================
+========================================================================
+REVIEWER WORKING NOTES - DO NOT PASTE THIS SECTION INTO THE SUBMISSION
+========================================================================
+Manuscript: ICUS 2026 Abstract Submission - "Street-Scale Urban Fabric
+Morphometrics for Climate Resilience: An Open-Source QGIS-Based
+Typomorphological Workflow for the Izmir Gulf" (Turkish title: "Sokak
+Olceginde Kentsel Doku Morfometrisi ve Iklim Direncliligi: Izmir Korfezi
+Icin Acik Kaynakli QGIS Tabanli Bir Tipomorfolojik Is Akisi")
+Conference: 11. Kent Arastirmalari Kongresi / ICUS 2026
+Venue / dates: 12-14 October 2026, Ankara, Turkiye; hybrid format
+Theme: Climate Change Resilient Cities
+Submission type: Abstract only; full paper will not be submitted
+Authors: Yusuf Eminoglu (corresponding, Dokuz Eylul University, Dept. of
+City and Regional Planning) / Halil Topcu (presenter, Izmir Demokrasi
+University, Urban Design Master's Program)
+Review type: Full review of conference abstract (adapted from journal-
+manuscript protocol; Steps 0-4 plus scoring)
+Pre-review diagnostic: No pre-rejection flags. The abstract is within
+scope, methodologically thoughtful, and well-structured for its venue.
+Three issues shape the review: (1) the abstract describes a research
+design and promised outputs but contains no results -- it is a proposal,
+not findings; (2) the dual spatial-unit structure is innovative but the
+analytical relationship between the two layers is underspecified; (3) the
+claims of explainable morphometric synthesis and decision-support ready
+outputs outpace what an abstract-only submission without results can
+support. See major comments for details.
+Self-check: Plain ASCII, no markdown, 11 major and 11 minor comments.
+Four-pass zero-error protocol applied per comment. Format: major comments
+grouped by manuscript section with continuous numbering; minor comments
+grouped by manuscript element.
+Recommendation: Accept as abstract (conditional on revision of
+overstatement and methodological precision)
+########################################################################
+CONFIDENTIAL COMMENTS TO THE EDITOR   (copy the prose below)
+########################################################################
+I recommend conditional acceptance of this abstract, with revisions to
+the claims and methodological specificity. The submission proposes an
+open-source, QGIS-based typomorphological workflow that links street-scale
+urban fabric metrics to climate resilience indicators across the Izmir
+Gulf -- a topic that aligns well with the Climate Change Resilient Cities
+theme. The dual-unit spatial design (pedestrian catchments overlaid with
+morphological cells) and the four-stage analytical pipeline are
+thoughtfully conceived and reflect genuine methodological literacy in
+spatial analysis, urban morphology, and open-source GIS. The abstract
+suffers from a structural tension: it is written as if reporting completed
+work, yet no results, proof-of-concept outputs, or preliminary validation
+are provided for an abstract-only submission. Several strong claims (an
+explainable morphometric synthesis, decision-support-ready outputs, a
+repeatable and auditable model) outpace what the abstract can demonstrate.
+The methodological section lists numerous indicators but leaves critical
+operational choices unspecified -- the clustering method, the
+dimensionality reduction technique, the weighting scheme for
+multi-criteria prioritisation, and the mechanism by which the two spatial
+layers are analytically integrated. The abstract is strong enough for
+presentation at ICUS 2026, but the authors should either add preliminary
+results or recalibrate the claims to the proposal stage. The scientific
+risk to the session is low; the methodological design is competent and the
+topic is timely. If the authors deliver even a subset of the promised
+workflow with empirical outputs, the presentation will be a solid
+contribution to the conference.
+COMMENTS TO THE AUTHORS
+This abstract proposes an ambitious and well-structured open-source
+workflow that couples urban fabric morphometrics with climate resilience
+assessment at street scale across the Izmir Gulf. The dual spatial-unit
+design -- pedestrian catchments derived from road-centre-line networks
+alongside morphological cells from building footprints -- is the
+manuscript's strongest conceptual move, because it forces the analysis to
+read movement potential and built-form intensity together rather than
+reducing one to the other. The four-stage pipeline (data harmonisation,
+street-network analytics, building/cell morphometrics, climate-resilience
+proxies) is logically sequenced, and the commitment to open-source QGIS
+and reproducible project structure is appropriate for the venue and the
+stated goal of producing a transferable decision-support model.
+The abstract has one structural problem that shapes most of the comments
+below: it is written as a completed study but contains no results,
+proof-of-concept outputs, or validation. Conference abstracts that promise
+an atlas, a set of fabric classes, and intervention priorities without
+showing even a single preliminary map or classification place the reviewer
+in the position of evaluating a proposal rather than a submission. The
+method is detailed enough to be credible -- the list of indicators is
+extensive, the analytical stages are sensible -- but the operational
+choices that would let a reader assess feasibility are largely absent. The
+comments below follow the manuscript order; the most consequential are
+the results gap (Major 1), the dual-layer integration mechanism (Major 2),
+and the overstatement of readiness (Major 3).
+MAJOR COMMENTS
+Abstract framing and scope:
+1. The abstract promises outputs that the submission does not contain.
+The English and Turkish abstracts both state that the study will produce
+an open-source QGIS atlas, a set of street-scale urban fabric classes, and
+a prioritisation logic for climate adaptation interventions -- yet no
+results, preliminary maps, proof-of-concept outputs, or illustrative
+fabric classes appear anywhere in the submission. For an abstract-only
+submission that states "full paper will not be submitted to the congress,"
+the gap between promised outputs and presented evidence is structural.
+Either add at least one proof-of-concept map, a pilot classification from
+a single neighbourhood, or an illustrative fabric-resilience profile from
+one sample cluster; or reframe the abstract in future tense throughout and
+state explicitly that the workflow design is the contribution and the
+empirical outputs are anticipated. The current framing risks a
+presentation that cannot meet the expectations the abstract sets.
+2. The dual-unit spatial structure is the most innovative element of the
+design, but the relationship between the two layers is not analytically
+resolved. The abstract states that 400- and 800-metre pedestrian
+catchments form the first layer and morphological cells and sub-block
+fabric partitions form the second, and that "both movement potential and
+built-form intensity can be read together." How they are read together is
+not stated. Are morphometric indicators computed within each catchment and
+then attributed to catchment units? Are the two layers modelled
+hierarchically (cells nested in catchments)? Are the cells used only for
+built-form metrics while catchments carry network metrics, producing two
+parallel but unintegrated profiles? Specify the analytical integration
+mechanism -- a hierarchical model, a cross-attribution rule, a zonal
+statistics operation -- in one or two concrete sentences.
+Methodological specificity:
+3. The indicator set is listed as a catalogue of metric names but lacks
+the operational detail needed to assess feasibility or comparability.
+Connectivity, node density, meshedness, orientation entropy, circuity,
+angular integration, and angular choice are all named for the street
+network; ground coverage, floor-space intensity proxies, openness ratio,
+compactness, frontage continuity, block permeability, cell heterogeneity,
+and open-space fragmentation are all named for the building/cell layer.
+None carries a formula, a computational reference, a unit, or a stated
+source package (e.g., QGIS processing toolbox, Python library, GRASS
+module). For an abstract that foregrounds reproducibility, name the
+specific tool or library for at least the core indicators so a reader can
+assess whether the workflow is genuinely reproducible or only conceptually
+described.
+4. The dimensionality reduction, clustering, and multi-criteria
+prioritisation steps that produce the fabric-resilience profiles are
+mentioned only in passing. The English abstract states: "dimensionality
+reduction, unsupervised clustering and multi-criteria prioritisation are
+then used to classify samples and identify dominant adaptation drivers."
+No algorithm is named (PCA? t-SNE? UMAP? for reduction; k-means?
+hierarchical? DBSCAN? for clustering; AHP? TOPSIS? weighted sum? for
+prioritisation). These choices are consequential: different methods produce
+different classifications, and an "explainable morphometric synthesis"
+depends on the transparency of the combinatorial step. State the specific
+algorithms and the rationale for each.
+5. Scale sensitivity is acknowledged but not addressed. The abstract
+states that indicators are "standardised with attention to scale effects,"
+and the catchments are defined at two sizes (400 m and 800 m), but there
+is no indication of how scale effects are diagnosed or corrected. For
+example, block permeability computed on a 400 m versus 800 m catchment
+will differ systematically; a fabric type defined at one catchment radius
+may not survive at the other. State how the two catchment sizes are used
+in the classification -- are they alternative analytical grains run in
+parallel, or is one nested in the other? Report whether and how the
+fabric-resilience profiles are stable across the two scales.
+6. The social vulnerability component is listed among the climate and
+resilience proxies but its operationalisation is the least specified part
+of the abstract. The English text names "socio-spatial vulnerability
+indicators"; the Turkish text adds "sosyal kirilganlik gostergeleri." No
+source, variable, index, or aggregation logic is stated. Social
+vulnerability indices range from simple (e.g., census-based age and income
+proportions) to composite (e.g., SoVI, SVI, or bespoke PCA-based indices),
+and the choice materially affects which populations and places are flagged
+as vulnerable. Specify the vulnerability data source, the indicators,
+and the aggregation method.
+7. The climate hazards the resilience assessment targets are not
+enumerated. The abstract invokes heat exposure (golgelenme/gunelenme,
+shadow/solar exposure), emergency access (toplanma alani, assembly areas),
+and green-blue infrastructure proximity, which collectively point toward
+urban heat and possibly flood pathways -- but the specific hazards are
+never named. A resilience framework that does not state which climate
+stressors it addresses cannot be assessed for whether the chosen
+indicators match the hazard. State the target hazards explicitly (e.g.,
+extreme heat, pluvial flooding, coastal inundation) and show that the
+indicator set is hazard-appropriate.
+Study design and sampling:
+8. The stratified sampling design is well-motivated conceptually (historic
+centres, grids, apartment blocks, waterfront transformation zones,
+hillside settlements, industrial-logistics fragments, peripheral
+expansion) but the sampling logic is not described. How many street
+segments or catchments per fabric type? What is the total N? Are the
+strata defined a priori from planning documents or land-use maps, or are
+they emergent from the morphological clustering itself? If the latter, the
+design is circular: samples are assigned to types that the analysis is
+supposed to discover. Clarify the stratification source and the sample
+size per stratum.
+9. The abstract states that morphological cells serve "as a proxy for
+fine-grained plot/building relationships where cadastral data are
+unavailable or inconsistent." This is a defensible workaround, but the
+validity of the proxy is not discussed. Morphological cells derived from
+building footprints alone cannot capture plot boundaries, ownership
+parcels, or development rights -- all of which affect urban form and
+climate adaptation capacity. State the limitations of the
+building-footprint-only proxy and, if possible, provide a small validation
+against available cadastral data for at least one sub-area.
+Conceptual clarity:
+10. The term "urban fabric" anchors the abstract but is used in at least
+three distinct senses: as a descriptive category (historic centre fabric,
+grid fabric), as a measurable morphological profile (the morphometric
+indicators), and as an explanatory mechanism (fabric explains resilience
+outcomes). The slippage between these senses makes the argument hard to
+track. Distinguish fabric-as-taxon (the type label) from
+fabric-as-measurement (the indicator vector) from fabric-as-mechanism
+(the causal claim) -- or at minimum use the terminology consistently so
+the reader knows which sense is active at each point.
+11. The contribution claim -- "coupling urban morphology, street-network
+analytics and climate-resilience planning" -- is reasonable but needs to
+be positioned against existing work that already couples some of these
+elements. The urban morphology community (e.g., the ISUF tradition,
+Space Syntax applications to resilience, Morpho and Urban Morpho metrics)
+and the spatial analytics community (e.g., Cityseer, momepy, the Urban
+Morphometrics toolkit) have produced open-source morphometric workflows
+that the abstract does not acknowledge. Cite the closest prior work and
+state what this workflow adds that the existing toolchains do not.
+MINOR COMMENTS
+Abstract and title:
+a) The Turkish title uses "Iklim Direncliligi" and the English uses
+"Climate Resilience" -- both are appropriate. However, the English title
+runs to 19 words and 145 characters with spaces, which is long for a
+conference abstract title. Consider shortening, e.g., dropping "An
+Open-Source QGIS-Based" if QGIS is already stated in the abstract body.
+b) The English abstract word count is reported as 524 words and the
+Turkish as 517. Verify that the conference limit is 500-750 as stated in
+the submission compliance table; some ICUS venues use a 500-word ceiling.
+c) The keywords in both languages include "kentsel doku / urban fabric"
+and "acik kaynak QGIS / open-source QGIS." The title already contains both
+terms. Conference abstract keywords should extend beyond the title to
+capture dimensions the title misses -- consider adding "spatial analysis,"
+"GIS," "morphometrics," "pedestrian accessibility," or "vulnerability" to
+improve discoverability without duplication.
+d) The Turkish abstract uses "kentsel doku" throughout (consistent with
+the stated terminology decision). The submission compliance table notes
+that "urban tissue" is reserved as a secondary morphology term. This is a
+careful terminological choice worth keeping. Verify that no instance of
+"doku" has drifted in meaning -- in one Turkish sentence "kentsel dokunun
+olculebilir morfolojik yapisi" could be read as either fabric or texture.
+Methodological language:
+e) "Angular integration" and "angular choice" are Space Syntax terms that
+assume a segment-map representation of the street network. State whether
+the analysis uses a segment map (standard in depthmapX and the QGIS Space
+Syntax Toolkit) or a centre-line representation, because the two produce
+different values. If a centre-line network is used but segment-based
+metrics are computed, the conversion step should be noted.
+f) "Floor-space intensity proxies" is vague. If this means
+floor-area-ratio or building-volume-to-site-area, name the proxy. If the
+data do not support floor counts and the proxy is building footprint area
+relative to cell area, state that explicitly.
+g) "Impervious surface exposure" is listed as a climate proxy. Clarify
+whether this is measured from satellite-derived imperviousness data
+(e.g., Copernicus Imperviousness Density, ESA WorldCover) or approximated
+from building footprint density, because the two carry different
+uncertainties.
+Presentation and language:
+h) The English abstract is well-written and largely free of grammatical
+errors. One sentence in the opening paragraph is unusually long at 51
+words: "Focusing on the Izmir Gulf, the study integrates street-network
+configuration, building pattern, open-space continuity, pedestrian
+accessibility, shadow and solar exposure proxies, green-blue
+infrastructure proximity, emergency/service access and social
+vulnerability within a single typomorphological framework." Consider
+breaking this into two sentences for readability.
+i) The Turkish abstract consistently uses the passive voice ("kurgulanmistir",
+"derlenmekte", "hesaplanmaktadir", "olculmektedir", "eklenmektedir") which
+is conventional for Turkish academic prose and appropriate for the venue.
+No change needed.
+j) The submission compliance table reports "Tables, figures, references in
+abstract body: None" -- this is appropriate. However, if the conference
+format permits a single schematic figure, adding a workflow diagram would
+substantially improve the abstract's clarity given the four-stage
+pipeline. The current text-only description of the pipeline requires the
+reader to hold four stages of indicator types in working memory.
+References and data:
+k) No data sources are cited with DOIs or persistent identifiers. The
+abstract mentions "open geospatial layers" and "open data sources" but
+does not name a single one -- OpenStreetMap, Copernicus Urban Atlas,
+Turkish Statistical Institute, Esri World Imagery, any specific building
+footprint dataset. For a submission whose core claim is open-source
+reproducibility, name at minimum the building footprint source and the
+street network source.
+MANUSCRIPT SCORE (conference abstract; weights adapted)
+Novelty: 68 / 100 -- The dual-unit spatial design (pedestrian catchments
+plus morphological cells) and the morphometric-synthesis approach to
+climate resilience are a substantive extension of existing urban
+morphometrics work into the resilience domain, applied to a
+well-motivated Turkish coastal metropolitan context. The contribution
+is a novel framework integration rather than a novel method, and the
+absence of results or prior-art positioning tempers the score.
+Methodological Validity: 55 / 100 -- The four-stage pipeline is logically
+coherent, the indicator families are appropriate for the research
+question, and the commitment to open-source reproducibility is a
+strength. However, no indicators are operationally defined; the
+integration mechanism between the two spatial layers is unspecified;
+the clustering, dimensionality reduction, and prioritisation algorithms
+are not named; scale sensitivity is mentioned but not resolved; and no
+validation strategy is proposed. The methodological description is a
+well-organised catalogue but not yet a testable protocol.
+Presentation: 72 / 100 -- The bilingual abstract is clearly written,
+the structure follows a logical sequence (gap, design, method,
+contribution), and the terminology is carefully managed with an
+explicit terminology decision. The abstract reads cleanly and the
+technical ambition is communicated effectively. Shortcomings include
+an excessively long English title, a single 51-word sentence, and the
+absence of even a schematic workflow diagram that would substantially
+aid comprehension.
+Composite (0.35 * 68 + 0.45 * 55 + 0.20 * 72): 62.9 / 100
+Note: This score applies conference-abstract calibration. Methodological
+validity carries the highest weight because the abstract's contribution
+claim rests on the soundness of the proposed workflow. The composite maps
+to a recommendation of conditional acceptance with revisions.
+----------------------------------------------------------------------
+End of review. This report was generated by applying the peer-review
+methodology from the operator's peer-review-system to the ICUS 2026
+abstract submission. No modifications were made to the project files.
+The review adapts the journal-manuscript protocol for a conference
+abstract format. Tone adjustments, expansion of any comment, or
+finalisation as-is are at the operator's discretion.
+----------------------------------------------------------------------

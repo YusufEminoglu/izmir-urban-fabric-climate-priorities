@@ -1,0 +1,46 @@
+# ICUS 2026 İzmir grid paper — project environment.
+# Pilot runs in a project-local venv (.venv, Python 3.12). QGIS/PlanX plugins are
+# used separately; this stack covers the reproducible Python pipeline.
+
+# --- core geospatial ---
+geopandas
+pyogrio
+shapely
+fiona
+rasterio
+rioxarray
+xarray
+pandas
+numpy
+
+# --- street network + morphometrics ---
+osmnx
+momepy
+networkx
+
+# --- spatial statistics (Moran/LISA, Gi*, MGWR) ---
+libpysal
+esda
+mgwr
+pointpats
+
+# --- Earth Engine download (Landsat LST, WorldCover) ---
+earthengine-api
+geemap
+geedim
+
+# --- explain stage: gradient boosting + SHAP ---
+scikit-learn
+xgboost
+lightgbm
+shap
+
+# --- optimize stage: multi-objective / Pareto ---
+pymoo
+
+# --- io / viz ---
+openpyxl
+requests
+matplotlib
+seaborn
+tqdm

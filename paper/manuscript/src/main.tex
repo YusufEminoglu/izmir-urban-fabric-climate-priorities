@@ -1,0 +1,37 @@
+%! Project = ICUS 2026 / 11. Kent Arastirmalari Kongresi
+%! Title family = Open-source QGIS urban-resilience screening (PlanX)
+%! CRS = EPSG:32635 (Izmir, UTM Zone 35N)
+%
+
+\documentclass[12pt,a4paper]{article}
+
+\usepackage{mypreamble}
+
+\begin{document}
+
+\graphicspath{{../../../outputs/figures/}}
+
+%% ── FRONT MATTER ──────────────────────────────────────────────────────────
+\input{sections/titleAbstract}
+
+\doublespacing
+
+%% ── BODY ──────────────────────────────────────────────────────────────────
+\input{sections/introduction}
+\input{sections/background}
+\input{sections/methodology}
+\input{sections/results}
+\input{sections/discussion}
+\input{sections/conclusions}
+\input{sections/declarations}
+
+%% ── BIBLIOGRAPHY ──────────────────────────────────────────────────────────
+\clearpage
+\bibliographystyle{apalike}
+\bibliography{refs}
+
+%% ── APPENDIX ──────────────────────────────────────────────────────────────
+\clearpage
+\input{sections/appendix}
+
+\end{document}

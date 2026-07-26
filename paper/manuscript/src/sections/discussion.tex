@@ -1,0 +1,169 @@
+\section{Discussion}
+\label{sec:discussion}
+
+\subsection{Mechanisms}
+\label{sec:disc-mechanism}
+Reading fabric through the three registers of type, measurement and mechanism does
+analytical work here. The provisional planning types are recovered as measurable
+form (Table~\ref{tab:fabric-profiles}) but consolidate into four robust
+morphometric super-types, and the mechanism layer then explains why the
+hottest of these is the coarse-grain industrial fabric: large, contiguous
+impervious footprints, the leading morphological term in the SHAP attribution. At
+the same time, at metropolitan scale urban form is a secondary control on summer
+land-surface temperature once the coastal gradient is taken into account.
+Morphology alone carries modest but genuine skill
+(spatial-block $R^2 \approx 0.09$), roughly tripling to $R^2 \approx 0.27$ once
+coastal and topographic context is admitted. This is consistent with marginal/interaction
+accounts that find form effects real but conditional \citep{wangZ2025MarginalInteraction},
+and it cautions against importing the strong morphology-temperature coefficients
+reported for inland or fine-scale settings \citep{liu2026Nonlinear, li2026BlockGrid}
+into a maritime metropolis without the coastal control.
+
+\label{sec:disc-positioning}
+The contribution is the binding, in one commensurable unit, of reproducible
+morphometrics, measured heat, accessibility and social vulnerability, and their
+conversion into trade-off-aware priorities. Relative to descriptive typologies
+\citep{araldi2025MultiLevel, fleischmann2022MethodolFoundati} the workflow attaches
+hazard and equity outcomes to fabric; relative to grid/LCZ-scale SHAP-LST studies
+\citep{wangZ2025PlainPlateau, li2026BlockGrid} it operates at the street/cell scale
+and feeds attribution into a decision step; and relative to coarse vulnerability
+indices \citep{turner2025Guhvi} it ties vulnerability to the form that produces
+differential exposure. The two stages are complementary rather than nested: the SHAP attributions diagnose
+why a fabric is hot and so guide the type of intervention each priority
+fabric needs, while the optimizer ranks where to act using measured
+land-surface temperature rather than a SHAP-derived heat axis. The sharpest
+illustration is an inversion the integrated unit makes visible: the waterfront
+fabric is the coolest yet the highest-priority, because it is the most
+demographically vulnerable (elderly share 19.0\%) and the most coastally exposed.
+The coastal-exposure driver is partly definitional, so the claim is best read as:
+a cool fabric ranks first once vulnerability and exposure are
+admitted. A heat-only assessment would have mis-ranked it, providing a concrete instance of
+the blind spot the introduction identifies. Although the main-text vulnerability
+axis is an age-structure proxy, robustness tests re-run the priority pipeline with
+two age-independent axes derived from open GHSL data: a building-age proxy
+(thermal envelope and pre-code construction) and a dwelling-crowding proxy. This
+keeps the waterfront top-ranked under building age and under a three-axis
+composite, and in the top tier under crowding (Appendix~\ref{app:vuln-robust},
+Table~\ref{tab:vuln-robust}). The building-age ranking reproduces the age-based ordering
+almost exactly (Spearman $\rho = 0.96$), so the paradox is a property of the coupled
+need structure rather than of the demographic operationalization of vulnerability.
+
+\subsection{Policy translation}
+\label{sec:disc-policy}
+For \.{I}zmir, the priorities translate fairly directly. The high-high need clusters
+(historic core, waterfront, industrial) are where shading, greening and
+permeable-surface interventions would couple heat and equity gains
+\citep{neumann2026ClimateJustice}; these locations represent critical targets for
+ecosystem-based adaptation and targeted nature-based solutions to build urban
+resilience \citep{geneletti2016EcosysteBased, wamsler2020EnvironmClimate,
+babi2021NexusBetween}. The industrial fabric's footprint-driven heat
+points to roof/yard greening and albedo measures, drawing on documented tree and green
+infrastructure cooling benefits that optimize population-exposure reduction
+\citep{yu2020CriticalReview, schwaab2021RoleUrban, marando2022UrbanHeat,
+massaro2023SpatiallOptimize}. The waterfront's priority is driven by vulnerability
+and exposure rather than heat, implying social and evacuation-access measures over
+cooling alone. Because the spatial-statistics layer localizes need (LISA, $G_i^{*}$)
+and the priorities are reported with their weight-robustness, the output is usable
+as a transparent screening input to municipal climate-action planning rather than
+a black-box score.
+
+Table~\ref{tab:policy-translation} converts the mechanism and ranking outputs
+into intervention packages. The SHAP values are diagnostic associations rather
+than intervention effects: for example, peripheral expansion carries a mean
+green-cover attribution of $-0.81\,\si{\celsius}$, whereas the large-footprint
+term in industrial/logistics carries $+0.40\,\si{\celsius}$. This
+$1.21\,\si{\celsius}$ model-attributable contrast indicates where additional
+green cover and large-roof retrofits align with the fitted heat mechanism; it is
+not a claim that either intervention would cause the full contrast.
+
+\begin{table}[htbp]
+  \centering\footnotesize
+  \caption{Policy translation by fabric stratum. Dominant mechanisms are the
+  largest absolute stratum-mean SHAP terms in Figure~\ref{fig:shap}; priority is
+  the Monte-Carlo mean rank from Table~\ref{tab:priority} (1 = highest).}
+  \label{tab:policy-translation}
+  \begin{tabular}{@{}p{0.18\textwidth}p{0.24\textwidth}p{0.10\textwidth}p{0.38\textwidth}@{}}
+    \toprule
+    Fabric stratum & Dominant SHAP mechanism & Priority rank & Recommended intervention package \\
+    \midrule
+    Waterfront transformation & Coastal proximity cooling ($-1.84\,\si{\celsius}$) & 1.6 & Evacuation access, heat-health outreach, shaded assembly areas and coastal-exposure planning. \\
+    Historic core & Green-cover deficit ($+0.32\,\si{\celsius}$) & 2.7 & Courtyard and pocket greening, reversible shade, cool roofs and protected pedestrian routes. \\
+    Peripheral expansion & Green cover cooling ($-0.81\,\si{\celsius}$) & 3.0 & Preserve existing green cover, add street trees and connect daily services and assembly access. \\
+    Industrial / logistics & Large footprints warming ($+0.40\,\si{\celsius}$) & 4.2 & Cool and green roofs, yard trees, high-albedo paving and worker shade. \\
+    Apartment block & Green-cover deficit ($+0.32\,\si{\celsius}$) & 5.1 & Courtyard trees, facade and roof greening, and shaded walking links. \\
+    Hillside / incremental & Slope context ($-0.29\,\si{\celsius}$) & 5.7 & Slope-safe evacuation routes, distributed shade and small-scale permeable surfaces. \\
+    Grid residential & Green cover cooling ($-0.20\,\si{\celsius}$) & 5.8 & Retain canopy, shade intersections and improve access to services and assembly areas. \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+\subsection{Limitations}
+\label{sec:disc-limits}
+Several caveats bound these claims. (i) The fabric strata are \emph{provisional} and
+rule-based; they are earmarked for refinement with planning documents and
+urban-design expertise, and the clustering already signals that seven types
+over-partition a four-mode morphometric space. (ii) The heat layer is screening,
+not prediction: a modest, conservatively reported $R^2$ and a coast-dominated signal mean
+the SHAP mechanism attributions describe associations within this sample, not a
+transferable temperature model. The attributions are nonetheless spatially stable: the
+feature-importance ordering holds across spatial-block folds (Spearman $= 0.86$) and
+every high-importance predictor keeps its sign of effect in all folds
+(Appendix~\ref{app:shap-stability}), so the mechanism reading does not hinge on any
+single region. (iii) The analysis uses a multi-year summer-mean
+LST over the full census of 3{,}777 cells; seasonal/diurnal contrasts and a fine-scale
+(pixel) attribution are deferred to future work. (iv) The main-text social-vulnerability axis rests on
+age-structure proxies (elderly share and age dependency from the 2024 ADNKS register);
+over the full census every grid cell falls within a populated \emph{mahalle}, so no
+imputation or spatial fallback is required. We show the equity inversion is robust to
+this operationalization by re-deriving vulnerability from two age-independent GHSL axes
+(building age and dwelling crowding) and confirming the waterfront stays top-tier
+(Appendix~\ref{app:vuln-robust}); nonetheless, richer socioeconomic inputs (income,
+tenure, health-service access) would further sharpen the equity axis. (v) The five-axis Pareto
+screen is uninformative at the fabric level (no fabric dominated); applied at the
+cell level it is selective (223 of 3{,}777 cells non-dominated), which is the level at
+which the dominance result should be read. (vi) Built-form intensity uses
+footprint area and measured floor counts; hazard treatment is non-hydrodynamic.
+(vii) Pluvial susceptibility is provided only as a topographic screening overlay
+and does not enter the five priority axes. Hydrodynamic validation is required
+before it can be promoted to a ranked need axis. (viii) The tessellation-as-plot-proxy assumption was not validated against cadastral
+or plan records for \.{I}zmir in this study; such a check is left for the
+refinement stage.
+
+\subsection{Outlook}
+\label{sec:disc-transfer}
+The workflow runs on open and openly licensed inputs, including OpenStreetMap, ESA
+WorldCover, Landsat via Google Earth Engine, an open DEM and the public population
+register. Official municipal building and street layers supplement these sources and
+materially improved completeness over crowd-sourced footprints. With frozen
+software versions, logged parameters and released code, the same chain transfers to
+other coastal metropolitan regions, where the coastal-gradient finding suggests
+that context terms must travel with the morphological ones. Concrete next
+candidates include Mediterranean coastal cities with comparable open-data coverage,
+such as Barcelona, Marseille, Athens, Antalya and Alexandria, all of which combine
+dense historical cores, post-war expansion rings and littoral exposure gradients
+analogous to \.{I}zmir's. In each case the core inputs include OpenStreetMap building
+footprints, Copernicus Sentinel-2/Landsat surface temperature, ESA WorldCover land
+use and national census or population-register data. These are publicly available,
+making the transfer operationally feasible. The critical lesson from the \.{I}zmir
+census is that, in maritime cities, contextual drivers (the coastal gradient) must
+travel with the morphological ones; any replication that omits the context control
+risks over-attributing thermal variance to built form.
+
+\label{sec:disc-future}
+Several extensions are planned for the full study. First, the current multi-year
+summer-mean LST will be decomposed into seasonal and diurnal contrasts (day versus
+night, summer versus winter) to reveal fabric-specific thermal behaviour that a
+single composite obscures \citep{wangZ2025MarginalInteraction}. Second, the SHAP
+attribution will be pushed from the cell level to the pixel scale, sharpening the
+morphology-heat link and enabling within-cell identification of the built-form
+elements that most amplify or mitigate surface temperature. Third, multiscale
+geographically weighted regression (MGWR) will be introduced to capture local
+non-stationarity in the heat-morphology relationship, extending the multiscale
+Istanbul evidence base with spatially varying coefficients
+\citep{zhao2018GeographWeighted, eminoglu2026Diagnosing}. Fourth, the
+screening-level pluvial-exposure
+layer will be replaced by, or validated against, hydrodynamic flood modelling to
+move from topographic susceptibility to physically based inundation depths
+\citep{imroz2025IntegratedAssess}. Finally, deployment of the workflow on a second
+coastal city will provide an inter-city transferability test and determine whether
+the coastal-context finding generalizes beyond the Aegean setting.

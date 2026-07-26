@@ -1,0 +1,18 @@
+[
+  {
+    "doi": "10.1016/j.compenvurbsys.2020.101441",
+    "reason": "Crossref DOI lookup failed",
+    "candidate": {
+      "doi": "10.1016/j.compenvurbsys.2020.101441",
+      "discovery_title": "",
+      "discovery_year": null,
+      "discovery_source": "",
+      "cited_by": 0,
+      "relevance_score": 20,
+      "categories": [
+        "morphometrics_typology"
+      ],
+      "discovery": "manual_seed"
+    }
+  }
+]

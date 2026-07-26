@@ -1,0 +1,348 @@
+\section{Methodology}
+\label{sec:methods}
+
+The workflow is built entirely on open-source tools and sits within the
+QGIS\,/\,\texttt{momepy} morphometrics ecosystem
+\citep{fleischmann2019MomepyUrban, fleischmann2022EvolutioUrban} and the
+\texttt{OSMnx} network ecosystem \citep{boeing2017Osmnx, boeing2025ModelingNetworks}.
+Resilience indicators are produced with the open-source PlanX QGIS plugin (version 4.10) \citep{eminoglu2026planxresilience}, with spatial statistics run in
+the PlanX suite's GeoStats module (version 0.9.17). Every algorithm parameter is
+recorded, and the QGIS project, derived layers and code are released for
+reproduction. The workflow joins a single commensurable analytical unit to a
+two-stage explain-then-optimize synthesis (Figure~\ref{fig:flowchart}).
+
+\subsection{Study area}
+\label{sec:study-area}
+
+The case is the \.{I}zmir functional urban region, a coastal Mediterranean
+metropolis on the Aegean coast of western T\"urkiye. The region combines a dense
+historic and planned core around the \.{I}zmir Gulf with apartment-block
+expansion, hillside incremental settlement, waterfront transformation zones, and
+an industrial-logistics and peri-urban edge. This cross-section of urban form is wide
+enough to make a fabric-based analysis meaningful. It also carries a documented,
+recent multi-hazard profile: extreme summer heat, pluvial flooding, and
+coastal/sea-level processes, set against a seismically active context whose 2020
+Aegean earthquake underlines the relevance of evacuation and assembly-area
+accessibility. The 30 October 2020 Aegean earthquake (Mw~6.9) and
+associated tsunami exposed critical shortcomings in evacuation routing and
+assembly-area coverage, while severe pluvial flash floods struck low-lying
+districts, particularly Bayrakl\i{} and Bornova, in consecutive years (2019,
+2020, 2021), and summer urban-heat-island intensities routinely push
+land-surface temperatures well above ambient
+\citep{canguzel2024ClimateChange}.
+
+The region's morphological range is operationalized into seven a-priori fabric strata:
+historic core, grid residential, apartment-block fabric, waterfront transformation,
+hillside/incremental tissue, industrial-logistics, and peripheral expansion.
+These strata span a broad morphological and climatic gradient characteristic of a Mediterranean Csa (hot-summer) coastal metropolis. At one
+extreme, the historic core exhibits the highest central density (FAR~1.69, 4.13~floors)
+and near-maximal orientation entropy (0.91), yet its narrow-canyon geometry and
+moderate ground coverage (0.37) keep mean summer land-surface temperature (LST) at
+42.7\,$^{\circ}$C. The apartment-block fabric shows lower density (FAR~1.13,
+3.49~floors, coverage~0.30) but records a higher LST of 43.7\,$^{\circ}$C, likely
+reflecting larger impervious-surface fractions between blocks. Waterfront
+transformation zones carry the tallest mean profile (5.08~floors) yet, benefiting
+from coastal exposure (coverage~0.21), register the coolest stratum-mean LST of
+41.7\,$^{\circ}$C. Hillside/incremental tissue and grid residential districts
+occupy an intermediate range in both form (FAR from 0.34 to 0.80, 3.0 to 3.3~floors) and
+thermal load (LST between 43.0 and 43.2\,$^{\circ}$C), while the industrial-logistics
+stratum, despite the lowest building heights (1.88~floors), reaches the highest LST
+of 45.5\,$^{\circ}$C owing to extensive impervious coverage and the coarsest,
+least-vegetated grain. The peripheral expansion edge is the least dense (FAR~0.07,
+1.87~floors) and the least built-up (coverage~0.03), with an LST of
+42.4\,$^{\circ}$C driven primarily by bare-soil albedo. This
+3.8\,$^{\circ}$C LST range across strata underscores why a fabric-resolved
+analysis is essential for climate-sensitive planning in
+\.{I}zmir \citep{canguzel2024ClimateChange}.
+
+The spatial layout of the \.{I}zmir functional urban region and the geographical distribution of all 3{,}777 urban cells retained across these seven provisional fabric strata are mapped in Figure~\ref{fig:strata-map}.
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=\textwidth]{fig1}
+  \caption{\.{I}zmir functional urban region study area map. (a) Context map showing district (ilçe) boundaries, coastline, and FUA boundary outline, with major central districts labeled. (b) Provisional fabric strata map showing the spatial layout of all 3{,}777 urban cells retained after exclusions (250\,m grid cells). Legend counts indicate the number of urban cells per stratum across the full census analysed in this study.}
+  \label{fig:strata-map}
+\end{figure}
+
+\FloatBarrier
+\subsection{Data sources}
+\label{sec:data}
+All input layers, their sources, resolutions, licences, role in the workflow and
+current acquisition status are listed in the data inventory
+(Table~\ref{tab:data-inventory}; see also Supplementary Figure~\ref{fig:supp-data-quality} for sensor resolutions and census distributions). Every input is open or openly licensed, which is
+what allows the workflow, including its parameters and code, to be transferred to
+other coastal metropolitan regions. The street network, building footprints, an
+open digital elevation model and the regional boundary are assembled, reflecting the
+growing availability of crowdsourced, open, and AI-derived datasets for building and
+hazard mapping \citep{bhuyan2023MappingCharacte}; the satellite land-cover and
+land-surface-temperature layers are obtained through a Google Earth Engine workflow,
+enabling the hyperlocal mapping of surface urban heat islands using crowdsourced and
+public satellite registers \citep{venter2020HyperlocMapping}, and the institutional
+and demographic layers (green-blue infrastructure, assembly areas, essential services
+and the T\"urkStat social-vulnerability inputs) are compiled from municipal open data
+and national statistics.
+
+\input{tables/data_inventory}
+
+\subsection{Analysis grid}
+\label{sec:methods-grid}
+The analytical surface is a 250\,m square grid (INSPIRE/GHSL-aligned) generated over the
+\.{I}zmir functional urban region in the projected coordinate system EPSG:32635 (UTM Zone 35N).
+The 250\,m cell resolution is chosen deliberately: although the Landsat 8/9 Thermal Infrared Sensor (TIRS) has a native spatial resolution of 100\,m (resampled to 30\,m by the USGS using cubic convolution), thermal data are aggregated to the 250\,m cells via zonal mean extraction to align with the scale of urban blocks and street networks. This cell size is large enough to yield stable morphometric and network statistics while remaining fine enough to resolve within-district spatial heterogeneity. Grid resolution is treated as an explicit object of analysis rather than a fixed assumption, and classifications are re-estimated at 500\,m to test scale stability (Section~\ref{sec:methods-cluster}).
+
+To ensure the analysis describes inhabited urban fabric, grid cells that are predominantly non-urban, industrial-empty, water, or steeply sloped (mean slope $>15\%$) are excluded according to strict threshold rules. Specifically, cells with a built fraction below 0.10 (from ESA WorldCover 2021, 10\,m), a water fraction above 0.50, or a mean slope above 15\% (from the Copernicus GLO-30 DEM, 30\,m) are excluded. These filters reduce the total candidate grid from 16{,}496 cells to 3{,}777 retained urban cells.
+
+All 3{,}777 retained urban cells enter downstream analysis as a \emph{full census} of the inhabited region without sampling. The seven a-priori fabric strata assigned to these cells are operationalized as rule-based proxies from land use, settlement history, and remote sensing prior to unsupervised clustering. They remain provisional and earmarked for refinement with planning documents and urban-design expertise; defining strata a priori and using clustering to test and refine them avoids the circularity of letting the classifier both define and confirm the typology (per-stratum cell counts are reported in Table~\ref{tab:fabric-profiles}).
+
+\subsection{Cross-attribution}
+\label{sec:methods-xattr}
+The analytical observation is the sampled 250\,m grid cell. Three sources of
+information are made commensurable within it. (i)~Building footprints are
+partitioned into morphological tessellation cells, a cadastre-independent plot
+proxy \citep{fleischmann2020Morphologic}, from which built-form characters are
+computed and aggregated to the grid cell by area-weighted statistics (median and
+interquartile range, plus densities). (ii)~Road centre-lines are cleaned and
+planarized into a segment graph \citep{boeing2017Osmnx}, and network descriptors
+are attributed to the cell they fall in or nearest to. (iii)~Accessibility and movement potential are evaluated within 400\,m and 800\,m
+\emph{network service areas} around each cell. From the municipal road centre-lines we
+build a routable street graph (nodes at segment endpoints, edges weighted by length)
+and, for each cell, run a distance-capped Dijkstra search from the nearest node to
+delimit the street segments reachable within 400\,m and 800\,m of network travel;
+street-network configuration, including segment-length, node and intersection densities,
+mean segment length and orientation entropy, is then measured over that service area.
+Using network distance rather than a Euclidean buffer means the reach respects the
+topology that governs walking access, so two cells equidistant ``as the crow flies''
+but differently connected receive different accessibility profiles. This characterizes the street space surrounding each cell rather
+than only what lies inside it, consistent with syntactic walkability and the
+prediction of void street-interface occurrences \citep{tannous2021AccessibGreen,
+de2023UnderstaPredicti}.
+The cross-attribution rule maps each tessellation character $c$ onto grid cell
+$g$ through the area-weighted aggregation
+\begin{equation}\label{eq:xattr}
+\bar{x}_{c}(g) \;=\; \frac{\sum_{t \in T(g)} a_{t \cap g}\, x_{c}(t)}
+                        {\sum_{t \in T(g)} a_{t \cap g}},
+\end{equation}
+where $T(g)$ is the set of tessellation cells intersecting grid cell $g$,
+$a_{t \cap g}$ is the area of the intersection between tessellation cell $t$ and
+grid cell $g$, and $x_{c}(t)$ is the value of character $c$ on tessellation cell
+$t$. The area-weighted median and interquartile-range analogues used for the
+built-form characters are produced by the same operator, with weighted order
+statistics in place of the weighted mean. Reach-based characters instead use the
+network service area
+\begin{equation}\label{eq:servicearea}
+S_{r}(g) \;=\; \{\, e \in E \;:\; d_{\mathrm{net}}(v_{g}, e) \le r \,\},
+\qquad r \in \{400, 800\}\,\mathrm{m},
+\end{equation}
+where $E$ is the set of street segments, $v_{g}$ is the graph node nearest to
+the centre of cell $g$, and $d_{\mathrm{net}}$ is the edge-length-weighted
+shortest-path (Dijkstra) distance along the street graph. The resulting feature
+vector is the row on which all downstream analysis operates.
+This rule is the methodological core: it is what lets movement, built form and
+hazard be integrated in one unit rather than reported as parallel, unlinked
+layers.
+
+\label{sec:methods-indicators}
+Network descriptors (computed with \texttt{OSMnx}/\texttt{NetworkX} and QGIS)
+include connectivity and node density, meshedness, orientation entropy, circuity,
+and centrality/configurational measures in the street-based and space-syntax
+traditions \citep{porta2012StreetCentrali, araldi2019FromStreet,
+boeing2022StreetNetwork, hillier1984SocialLogic}, read with awareness of the
+known limits of axial/space-syntax abstraction at fine scales
+\citep{pafka2020LimitsSpace}. Orientation entropy summarizes street-grid order as
+the normalized Shannon entropy of segment bearings \citep{boeing2019UrbanSpatial},
+\begin{equation}\label{eq:orient}
+H_{o} \;=\; -\,\frac{1}{\ln 18}\,\sum_{i=1}^{18} p_{i} \ln p_{i},
+\end{equation}
+where $p_{i}$ is the length-weighted share of street segments falling in
+orientation bin $i$ (18 bins; Table~\ref{tab:params}), so that $H_{o}=0$ for a
+perfectly ordered single-direction grid and $H_{o}=1$ for a uniform distribution
+of bearings. Morphometric descriptors (computed with
+\texttt{momepy}/\texttt{GeoPandas}) include ground coverage, openness, compactness,
+frontage continuity, block permeability, cell heterogeneity and open-space
+fragmentation, following the numerical-taxonomy character set
+\citep{fleischmann2021MeasurinUrban, fleischmann2022MethodolFoundati}. Each
+indicator, its definition, the library function that computes it and its expected
+direction are listed in the indicator table. The full indicator set comprises 29
+variables (15 building/tessellation, 6 network, 5 contextual and 3 hazard
+characters); their definitions, library functions and expected directions are
+tabulated in the supplementary material.
+
+\label{sec:methods-proxies}
+We treat extreme heat, pluvial flooding and coastal exposure. Proxies sensitive
+to urban morphology are mapped to each hazard: shade and solar-exposure
+potential, sky-view factor, and the albedo of material scenarios along street
+canyons for outdoor thermal comfort \citep{middel2018ViewFactor, mohammad2021EvaluatiRole};
+green-blue cooling access and the role of water bodies in mitigating LST
+\citep{wei2025NatureBased, cai2018WaterBodies, yu2020CriticalReview}; assembly-area
+and daily-service access for the movement/coping axis; and the overlap of
+impervious exposure with social vulnerability as an equity-sensitive exposure
+proxy \citep{turner2025Guhvi, neumann2026ClimateJustice}. Exposure measures are
+reported conservatively: impervious exposure is derived from satellite land cover rather
+than from a building-density proxy, and built-form intensity is stated explicitly
+where floor counts are unavailable. One boundary of scope is drawn here and
+maintained throughout: the pluvial-flood layer (topographic susceptibility from
+flow accumulation and depressions) is produced and released as a screening
+overlay, but it does \emph{not} enter the prioritization stage. Entering a
+topographic susceptibility surface into a ranking alongside measured heat would
+give it a false equivalence with the better-constrained axes, so its promotion
+to a need axis is deferred until it can be validated against hydrodynamic
+modelling (Sections~\ref{sec:methods-optimize} and \ref{sec:disc-limits}).
+
+\subsection{Explainable heat model}
+\label{sec:methods-explain}
+The dependent variable for the explain stage is \emph{measured} land-surface
+temperature from summer Landsat thermal scenes, processed following established
+Google Earth Engine surface-temperature workflows
+\citep{ravanelli2018MonitoriImpact, zhou2018SatellitRemote}. At the grid-cell scale,
+pooled across all 3{,}777 urban cells, a gradient-boosted-tree model (XGBoost) is
+trained to predict land-surface temperature
+from the morphometric and configurational drivers, with spatially blocked
+cross-validation and reported $R^2$/RMSE against regularized linear baselines; a
+pixel-scale attribution is deferred to future work. This builds on remote sensing studies
+of LST variation, seasonal fluctuations, and the impacts of land architecture in
+other contexts \citep{li2016RemoteSensing, haashemi2016SeasonalVariatio,
+jiang2015AssessinImpacts, ranagalage2020SpatioteVariatio}. SHAP values then provide
+global importance, dependence and interaction structure, and per-fabric local
+attribution, yielding each fabric's \emph{dominant heat mechanism}. For feature
+$j$, TreeSHAP defines the coalition-weighted marginal contribution
+\citep{lundberg2020LocalExplanations} as
+\begin{equation}\label{eq:shap}
+\phi_{j} \;=\; \sum_{S \subseteq F \setminus \{j\}}
+\frac{|S|!\,\bigl(|F|-|S|-1\bigr)!}{|F|!}\,
+\Bigl[ f_{x}\bigl(S \cup \{j\}\bigr) - f_{x}(S) \Bigr],
+\end{equation}
+where $F$ is the feature set and $f_x(S)$ is the conditional expected model
+output given coalition $S$. A
+geographically weighted analysis of local non-stationarity is reserved for the
+full study; a regularized linear baseline (ridge/elastic-net) guards against over-reading
+collinear predictors. This follows the now-standard explainable-ML template for
+the morphology$\rightarrow$temperature relationship, where the impacts of 2D/3D
+morphology heterogeneity and density on LST have been extensively documented using
+various grid- and block-based approaches \citep{wangZ2025PlainPlateau,
+liu2026Nonlinear, li2026BlockGrid, guo2016CharacteImpact, guo2020ImpactUrban,
+huang2019InvestigEffects, li2020InfluencDensity, jeon2023ImpactsUrban,
+taleghani2015OutdoorThermal}. These methods also allow for testing the
+climate impact of urban renewal, redevelopment, and high-resolution future climate
+projections on thermal comfort and building energy performance \citep{qiao2020ImpactUrban,
+renard2019EvaluatiEffect, hosseini2022HighResoluti, kabano2021EvidenceUrban}. This
+workflow is applied at street/cell scale and fed forward into the typology.
+
+\subsection{Typology and scale stability}
+\label{sec:methods-cluster}
+Indicators are direction-coded and z-standardized; principal component analysis
+reduces collinearity; Ward hierarchical clustering then groups grid cells into
+fabric-resilience profiles, with the number of clusters chosen by silhouette
+analysis and dendrogram consistency. The resulting profiles are interpreted
+against the a-priori strata and the wider fabric-typology literature
+\citep{bobkova2021TowardsAnalytic, yu2023UrbanNeighbou, araldi2025MultiLevel,
+debray2025UniversalPatterns, vartholomaios2025Detection}. Over the full census, the first
+seven principal components explain 91\% of total variance; Ward linkage with the
+cluster number chosen by silhouette analysis yields $k=4$ super-types (the
+smallest retained cluster contains $n=123$ cells, so the minimum-cluster-size
+guard of ten is not binding here) (Section~\ref{sec:results}).
+
+\label{sec:methods-scale}
+Because the choice of 250\,m is consequential, the classification is re-estimated
+on a 500\,m grid and the two partitions are compared with the Adjusted Rand Index
+and rank correlation; the 400/800\,m accessibility reach is optionally varied as a
+secondary check. This reports which indicators are scale-sensitive and whether the
+fabric-resilience typology is robust to resolution. Over the census the Adjusted
+Rand Index is 0.38 (fair agreement): the broad fabric gradient persists across
+resolution, though the 250\,m grid resolves a fourth, finer mode that the 500\,m grid
+merges (Section~\ref{sec:results}).
+
+\subsection{Spatial prioritization}
+\label{sec:methods-spatial}
+Spatial structure and equity are assessed in the PlanX suite's GeoStats module:
+global
+Moran's $I$ and local indicators of spatial association (LISA) on fabric clusters,
+model residuals and priority scores \citep{sanchez2019SpotAnalysis,
+purwanto2021SpatioteAnalysis}; Getis-Ord $G_i^{*}$ hot spots of adaptation
+priority; and a Gini coefficient of the impervious-exposure $\times$
+social-vulnerability burden as an explicit equity axis, tested for spatial
+autocorrelation rather than decomposed. Multiscale geographically weighted
+regression \citep{zhao2018GeographWeighted} belongs to the same suite and is
+reserved for the local non-stationarity analysis of the full study; the
+significance of the global and local statistics uses Monte-Carlo permutation.
+With row-standardized $k$-nearest-neighbour weights, global spatial
+autocorrelation is
+\begin{equation}\label{eq:moran}
+I \;=\; \frac{n}{\sum_{i}\sum_{j} w_{ij}}\;
+\frac{\sum_{i}\sum_{j} w_{ij}\, z_{i} z_{j}}{\sum_{i} z_{i}^{2}},
+\end{equation}
+where $w_{ij}$ is a row-standardized $k$-nearest-neighbour weight ($k=8$)
+and $z_i$ is the deviation of observation $i$ from the mean. The trapezoidal
+Lorenz-curve approximation summarizes equity as
+\begin{equation}\label{eq:gini}
+G \;=\; 1 - \sum_{k=1}^{n} \bigl( X_{k} - X_{k-1} \bigr)
+\bigl( Y_{k} + Y_{k-1} \bigr),
+\end{equation}
+where $X_k$ is the cumulative share of cells and $Y_k$ is the cumulative share
+of the impervious-exposure $\times$ social-vulnerability burden.
+
+\label{sec:methods-optimize}
+Adaptation priority is framed as a multi-objective problem across the hazard and
+capacity axes (heat, cooling deficit, access deficit, coastal exposure and social
+vulnerability). The
+heat axis is measured land-surface temperature; the SHAP attributions from
+the explain stage are not entered into the optimizer as weights but are used to
+interpret which morphological mechanism drives each priority fabric and
+therefore which intervention type fits it (Section~\ref{sec:disc-policy}). The
+Pareto-optimal frontier separates dominated fabrics from non-dominated trade-off
+fabrics. With all axes coded so that larger values mean greater need, cell $i$
+dominates cell $j$ when
+\begin{equation}\label{eq:pareto}
+i \succ j \;\iff\; n_{k}(i) \ge n_{k}(j)\;\; \forall k \in \{1,\dots,5\}
+\;\;\wedge\;\; \exists\, k :\; n_{k}(i) > n_{k}(j),
+\end{equation}
+where $n_k(\cdot)$ denotes a need axis, and cells not dominated under this rule form
+the priority frontier. Unambiguous intervention candidates are worse on every
+axis;
+because the fabric-level screen is degenerate when five axes meet only seven
+fabrics, the dominance result is read at the cell level
+(Section~\ref{sec:res-priority}). A
+TOPSIS ranking \citep{hwang1981MultipleAttribute} is provided for decision use.
+For the vector-normalized decision matrix, criterion entropy and its corresponding
+weight are
+\begin{equation}\label{eq:entropy}
+e_{k} \;=\; -\frac{1}{\ln m} \sum_{i=1}^{m} p_{ik} \ln p_{ik},
+\qquad
+w_{k} \;=\; \frac{1 - e_{k}}{\sum_{l} \bigl(1 - e_{l}\bigr)},
+\qquad
+p_{ik} \;=\; \frac{r_{ik}}{\sum_{i} r_{ik}},
+\end{equation}
+and the same weighted matrix gives each cell's relative closeness to the ideal
+solution,
+\begin{equation}\label{eq:topsis}
+C_{i} \;=\; \frac{D_{i}^{-}}{D_{i}^{+} + D_{i}^{-}},
+\qquad
+D_{i}^{\pm} \;=\; \Bigl( \sum_{k} \bigl( w_{k} r_{ik} - v_{k}^{\pm} \bigr)^{2} \Bigr)^{1/2},
+\end{equation}
+where $v_k^{+}$ and $v_k^{-}$ are the ideal and anti-ideal points. Rankings are
+reported under equal-weight, entropy-weight and Monte-Carlo weight-perturbation
+schemes, with 2{,}000 Dirichlet draws, rank-stability distributions and Kendall's
+$\tau$. This multi-objective
+framing follows established urban-heat and green-infrastructure optimization
+\citep{zhang2024MultiObjective, zhu2025SpongeCities} and spatial prioritization
+heuristics \citep{schroter2016SpatialPrioriti}, but is applied for the first time
+at the level of urban fabric.
+
+\label{sec:methods-repro}
+Three controls accompany the workflow. First, the tessellation-as-plot-proxy
+assumption can be validated against cadastral or plan records where these are
+available. Second,
+the hazard treatment is framed explicitly as screening (not hydrodynamic or
+microclimate simulation), so outputs are read as relative priorities rather than
+absolute risk. Third, all parameters are logged, all derived layers exported, and
+the QGIS project and code released. All inputs are public or openly licensed
+(OpenStreetMap, official municipal building and street layers, Copernicus/ESA land
+cover, Landsat land-surface temperature and T\"urkStat demographics), so the workflow
+carries no proprietary dependencies and transfers to other coastal metropolitan
+regions with comparable open-data coverage.
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=\textwidth]{fig2}
+  \caption{Methodological flowchart of the two-stage explain-then-optimize typomorphological urban resilience analysis pipeline, from raw inputs to multi-hazard priorities.}
+  \label{fig:flowchart}
+\end{figure}

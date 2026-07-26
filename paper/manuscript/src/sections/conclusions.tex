@@ -1,0 +1,54 @@
+\section{Conclusions}
+\label{sec:conclusions}
+
+This study set out to close a practical blind spot: reproducible morphometrics can
+say what kind of fabric a place is, and resilience assessment can say where risk is,
+but the two rarely meet at the street and neighbourhood scale where adaptation is
+designed. The proposed workflow binds them in one commensurable unit: a
+250\,m grid cell that carries tessellation-cell morphometrics, network reach and
+hazard exposure together. It converts them through an explain-then-optimize
+sequence into transparent, fabric-specific adaptation priorities. The
+explainable model diagnoses why fabrics are hot and which
+intervention each needs, while the optimizer ranks where to act, with the
+spatial-statistics and equity layer made explicit.
+
+The four research questions close as follows. \textbf{RQ1:} yes, the seven
+provisional strata are sharply differentiated on measured form, access and heat
+(Table~\ref{tab:fabric-profiles}), although they consolidate into four
+morphometric super-types. \textbf{RQ2:} stability is partial: the broad gradient
+persists at 500\,m, but ARI = 0.38 and the loss of the finest mode show that
+boundary membership remains scale-sensitive (Figure~\ref{fig:dendrogram}).
+\textbf{RQ3:} the dominant mechanism is fabric-specific; coastal distance leads
+globally, while large building footprints are the leading morphological warming
+term in industrial/logistics and green cover leads several residential strata
+(Figure~\ref{fig:shap}). \textbf{RQ4:} no fabric-level stratum is dominated, but
+the cell-level screen identifies a selective frontier of 223 cells, and the
+waterfront remains the highest mean-rank priority once exposure and vulnerability
+are considered jointly (Table~\ref{tab:priority}).
+
+A full-census application over the \.{I}zmir functional urban region, built entirely on open and official
+open-data layers, demonstrates the chain end-to-end. Fabric is sharply
+differentiated on measured form and consolidates into four morphometric
+super-types whose broad structure persists across grid resolution (ARI 0.38, fair
+agreement), with the finest mode resolution-sensitive.
+Measured summer heat is highest in the coarse-grain industrial fabric, and although
+the explainable model shows that, at metropolitan scale, form is a secondary
+control on land-surface temperature behind the coastal gradient, morphology carries
+modest but genuine skill ($R^2\approx0.09$ alone, $\approx0.27$ with context) and
+building-footprint grain is the leading morphological mechanism. Most consequentially, coupling heat,
+access, coastal exposure and age-based social vulnerability inverts a heat-only
+reading: the coolest fabric, the waterfront, is the highest adaptation priority
+because it is the most demographically vulnerable and the most exposed. This is exactly the
+case that coarse, single-hazard assessment misses.
+Planned extensions include seasonal and diurnal LST decomposition, pixel-scale SHAP
+attribution, and multiscale geographically weighted regression for local
+non-stationarity. These will deepen the mechanistic reading, and deployment on a second
+coastal city will test inter-city transferability of the workflow and the
+coastal-context finding.
+
+The results are deliberately reported as screening, with their uncertainty and
+weight-robustness, and the fabric strata remain provisional pending planning and
+urban-design refinement. With frozen software, logged parameters and released code,
+the workflow is transferable to other coastal metropolitan regions. It carries the
+lesson that, in maritime cities, contextual drivers must travel alongside the
+morphological ones.

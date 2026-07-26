@@ -1,0 +1,49 @@
+\title{Urban Fabric and Climate Adaptation Priorities in \.{I}zmir}
+
+\author[a]{Yusuf Emino\u{g}lu}
+\author[b]{Halil Top\c{c}u}
+\author[a]{Hilmi Evren Erdin}
+\affil[a]{Department of City and Regional Planning, Dokuz Eyl\"ul University,
+\.{I}zmir, T\"urkiye}
+\affil[b]{Graduate School of Natural and Applied Sciences, Urban Design Program,
+\.{I}zmir Demokrasi University, \.{I}zmir, T\"urkiye}
+
+\date{\today}
+
+\maketitle
+
+\begin{center}
+\small Corresponding author: yusuf.eminoglu@deu.edu.tr
+\end{center}
+
+\begin{abstract}
+Urban form shapes climate hazard, yet reproducible morphometrics and resilience
+assessment rarely meet at the neighbourhood scale of adaptation. This study
+couples street-scale morphometrics with multi-hazard
+exposure and age-structure social vulnerability to identify fabric-specific
+adaptation priorities for the \.{I}zmir functional urban region. An open-source,
+parameter-logged QGIS workflow analyzes a 250\,m grid covering all 3{,}777 urban
+cells, stratified into seven a-priori fabric types. A catchment-radius
+cross-attribution rule combines area-weighted tessellation characters with
+400/800\,m network service-area reaches in a common unit. An explainable
+gradient-boosting model with SHAP relates measured land-surface temperature to
+morphological mechanisms. Pareto optimization, TOPSIS and entropy/Monte-Carlo
+weight testing then rank priorities across five need axes: heat, cooling deficit,
+access deficit, coastal exposure and social vulnerability. Pluvial susceptibility
+remains a screening overlay pending hydrodynamic validation, while Moran's $I$,
+LISA, Getis-Ord $G_i^{*}$ and a Gini measure describe spatial structure and equity.
+Across the 3{,}777 cells, the seven fabrics consolidate into four morphometric
+super-types whose broad structure persists across grid resolution, although the
+finest mode is scale-sensitive (Adjusted Rand Index 0.38, fair agreement). Summer
+heat is highest in coarse-grain industrial fabric. Morphology has modest but
+genuine predictive skill ($R^2\approx0.09$), rising to $\approx0.27$ with coastal
+and topographic context, which makes form secondary to the coastal gradient at
+metropolitan scale. Combining heat with access, exposure and vulnerability
+reverses a heat-only reading: the coolest fabric, the waterfront, becomes the
+highest adaptation priority because it is the most vulnerable and exposed.
+Weight robustness, parameters, layers and code are reported.
+\end{abstract}
+
+\noindent\textbf{Keywords:} morphometrics; explainable machine learning; SHAP;
+Pareto frontier; TOPSIS; land-surface temperature; social vulnerability;
+open-source GIS

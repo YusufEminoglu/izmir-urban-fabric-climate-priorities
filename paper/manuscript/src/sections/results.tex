@@ -1,0 +1,257 @@
+\section{Results}
+\label{sec:results}
+
+The results cover the full census of $N=3{,}777$ urban grid cells retained after
+exclusion, comprising every inhabited cell of the \.{I}zmir functional urban
+region rather than a sample. The seven fabric strata are transparent, rule-based proxies,
+provisional and earmarked for refinement (Section~\ref{sec:methods-grid}); the
+unsupervised analysis below both tests them and reads through them.
+
+\subsection{Fabric differentiation}
+\label{sec:res-morpho}
+Using the official building footprint and street network layers across the full urban census ($N=3{,}777$ cells), the seven provisional fabric strata exhibit sharp structural differentiation across morphometric, topological, and microclimatic dimensions (Table~\ref{tab:fabric-profiles}). Built-form intensity varies widely: Floor-Area Ratio (FAR) ranges from a high of $1.69$ in the historic core (mean height $4.13$ floors; $37\%$ coverage) to $0.07$ in peripheral expansion ($1.87$ floors; $3\%$ coverage). High-rise redevelopment along the bay-front gives the waterfront-transformation fabric the tallest mean height profile ($5.08$ floors, FAR $1.26$), contrasting with high ground coverage but lower verticality in apartment blocks (FAR $1.13$, $3.49$ floors, $30\%$ coverage). Conversely, industrial and logistics areas are morphometrically distinct: they combine massive average building footprints with low street-orientation entropy ($0.67$) and sparse node connectivity ($28\,\text{intersections\,km}^{-2}$), representing highly ordered, coarse-grain production landscapes. These quantitative profiles confirm that rule-based stratification effectively isolates distinct urban form configurations from open municipal data \citep{fleischmann2022MethodolFoundati, araldi2025MultiLevel}.
+
+\begin{table}[htbp]
+  \centering\footnotesize
+  \caption{Provisional fabric strata over the full urban census ($N=3{,}777$): cell
+  count and mean morphometric, network and heat profile.}
+  \label{tab:fabric-profiles}
+  \begin{tabular}{@{}lrrrrrrr@{}}
+    \toprule
+    Fabric stratum & $n$ & FAR & Floors & Coverage & Inter.\,km$^{-2}$ & Orient.\,ent. & LST\,(\si{\celsius}) \\
+    \midrule
+    Historic core             & 110 & 1.69 & 4.13 & 0.37 & 163 & 0.91 & 42.7 \\
+    Apartment block           & 965 & 1.13 & 3.49 & 0.30 & 121 & 0.82 & 43.7 \\
+    Waterfront transformation & 249 & 1.26 & 5.08 & 0.21 &  60 & 0.80 & 41.7 \\
+    Hillside / incremental    & 873 & 0.80 & 3.33 & 0.22 & 103 & 0.87 & 43.0 \\
+    Grid residential          & 491 & 0.34 & 2.99 & 0.10 &  46 & 0.79 & 43.2 \\
+    Industrial / logistics    & 604 & 0.35 & 1.88 & 0.17 &  28 & 0.67 & 45.5 \\
+    Peripheral expansion      & 485 & 0.07 & 1.87 & 0.03 &  16 & 0.74 & 42.4 \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+To ground these numerical profile averages in physical urban reality, Figure~\ref{fig:tissue-comparisons} provides systematic spatial tissue comparisons across five building-density percentiles (10th, 30th, 50th, 70th, and 90th) for all seven strata. Across the 35 standardized $250\,\text{m} \times 250\,\text{m}$ spatial tiles, distinct morphological typologies emerge. The historic core displays a fine-grained, organic fabric composed of dense, irregular building footprints tightly constrained by historical block boundaries and intricate street networks. In contrast, waterfront transformation zones reveal modern, large-plate residential towers set within wider setbacks, whereas industrial tiles exhibit expansive single-story warehouse structures with rigid grid alignment. Peripheral expansion tiles demonstrate low-density, fragmented building clusters interspersed with non-urban land. This multi-scalar visual comparison confirms that identical grid cell boundaries contain fundamentally different structural arrangements, validating the multi-dimensional feature space.
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=\textwidth]{tissue_comparisons}
+  \caption{Systematic spatial tissue comparisons of building footprints and street networks across the seven fabric strata in \.{I}zmir, zoomed tightly on the 250\,m grid cells ($N=35$ panels, where all 35 panels share the exact same scale and spatial extent of 250\,m $\times$ 250\,m). For each stratum (rows), five representative cells are shown across columns representing the density range (10th, 30th, 50th, 70th, and 90th percentiles of building count).}
+  \label{fig:tissue-comparisons}
+\end{figure}
+
+Statistical testing across the full census further underscores the robustness of these morphological contrasts (Figure~\ref{fig:fabric-comparison}). Non-parametric Kruskal-Wallis tests confirm significant differences across all six physical and environmental indicators ($p < 0.001$, with large effect sizes $\eta^2$ up to $0.58$ for building coverage and $0.46$ for intersection density). Pairwise Holm-Bonferroni adjusted Mann-Whitney $U$ comparisons, summarized via Compact Letter Display (CLD), demonstrate that the historic core and waterfront transformation form distinct statistical groups in street density ($163$ vs. $60\,\text{intersections\,km}^{-2}$, CLD groups $a$ vs. $d$), while industrial fabric forms an isolated group in street-orientation entropy ($0.67$, group $e$). Crucially, summer land-surface temperature (LST) distribution highlights extreme microclimatic variance: industrial and logistics zones record the highest mean temperature ($45.5\,\si{\celsius}$), whereas waterfront transformation zones exhibit the lowest ($41.7\,\si{\celsius}$), reflecting the interplay between thermal mass, impervious coverage, and coastal proximity.
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=\textwidth]{fabric_comparison}
+  \caption{Morphometric, street-network, and climatic profile distributions across the seven provisional fabric strata (full urban census). Plots show a hybrid visualization of soft violin density envelopes and jittered raw data points. Dashed grey lines represent the overall census mean for each indicator. Insets report Kruskal-Wallis $H$ statistics, adjusted $p$-values, and effect sizes ($\eta^2$). Compact Letter Display (CLD) letters (a to e) indicate significant pairwise differences (Holm-Bonferroni adjusted Mann-Whitney $U$ test, $p < 0.05$); groups sharing a letter are not statistically distinct.}
+  \label{fig:fabric-comparison}
+\end{figure}
+
+The geographic expression of these indicators across the \.{I}zmir functional urban region is mapped in Figure~\ref{fig:raw-morphology-maps}. Spatial distributions reveal strong macro-structural gradients radiating from the central bay. High FAR (Figure~\ref{fig:raw-morphology-maps}a) and building coverage (Figure~\ref{fig:raw-morphology-maps}b) concentrate along the historic inner-bay arc (Konak, Alsancak, Kar\c{s}\i yaka) and secondary urban sub-centres (Bornova, Buca), with kernel density estimation (KDE) insets showing right-skewed distributions with census medians of $0.58$ for FAR and $0.15$ for coverage. In contrast, summer LST (Figure~\ref{fig:raw-morphology-maps}c) displays an inverted spatial pattern: inner coastal areas enjoy maritime moderation, whereas interior industrial basins (e.g., Kemalpa\c{s}a corridor) and dense inland valleys exhibit severe thermal hot-spots exceeding $46\,\si{\celsius}$, with a sample mean of $43.2\,\si{\celsius}$.
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=\textwidth]{raw_morphology_maps}
+  \caption{Spatial distribution maps of grid-based morphometric indicators and summer heat across the \.{I}zmir functional urban region (full urban census). (a) Floor-Area Ratio (FAR), (b) Building Coverage fraction, and (c) Measured summer land-surface temperature (LST). Inset axes show corresponding kernel density estimation (KDE) curves, with census medians reported textually and census means represented by the vertical red dashed line for each indicator.}
+  \label{fig:raw-morphology-maps}
+\end{figure}
+
+\FloatBarrier
+\subsection{Typology stability}
+\label{sec:res-typology}
+To test whether the provisional seven-stratum classification over-partitions the spatial sample, we applied unsupervised dimensional reduction and hierarchical clustering to the full census ($N=3{,}777$). Principal component analysis (PCA) retained seven components explaining $91\%$ of total variance (see Supplementary Figure~\ref{fig:supp-pca-diagnostics} for scree and loading diagnostics). Subsequent Ward hierarchical clustering identified four dominant morphometric super-types: (i) a compact mid/high-rise core ($n=1{,}265$; mean FAR $1.44$, $3.8$ floors, densest network topology), (ii) a coarse-grain, large-footprint industrial/commercial type ($n=1{,}062$; mean footprint $\approx 2{,}230\,\text{m}^2$; highest LST at $44.0\,\si{\celsius}$), (iii) a low-density residential/peripheral type ($n=1{,}327$; mean FAR $0.12$, high green cover fraction), and (iv) a sparse, highly ordered low-rise fringe ($n=123$).
+
+Multi-scale stability analysis further evaluates the sensitivity of these morphometric super-types to spatial grid resolution (Figure~\ref{fig:dendrogram}). When re-clustering the urban region at a coarser $500\,\text{m}$ grid resolution, silhouette width optimization peaks at $k=3$ (mean $s=0.218$) rather than $k=4$ (mean $s=0.224$ at $250\,\text{m}$). The cross-resolution partition agreement yields an Adjusted Rand Index (ARI) of $0.38$ (Figure~\ref{fig:dendrogram}b). This moderate stability indicates that while macro-scale gradients (compact core vs. coarse-grain industrial vs. low-density periphery) remain invariant across spatial scales, fine-scale fabric distinctions—particularly sparse fringe and localized waterfront redevelopments—are resolution-sensitive and tend to merge at coarser grid cell sizes. Bivariate feature positioning in the coverage-FAR plane (Figure~\ref{fig:dendrogram}c) confirms clear separation between the primary structural archetypes, validating the decision to maintain the $250\,\text{m}$ resolution for subsequent spatial equity and optimization analyses.
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=\textwidth]{cluster_synthesis}
+  \caption{Unsupervised fabric-resilience typology and its spatial-scale stability over the full urban census. (a) Ward hierarchical dendrogram with branch colours coordinated to the four-cluster palette and a red dashed cut line marking the $k=4$ linkage threshold. (b) Cluster-quality profile: mean silhouette width versus number of clusters $k$ for both the 250\,m census (peak at $k=4$, mean $s=0.224$) and the coarser 500\,m grid (peak at $k=3$), showing that the finest morphometric mode is resolution-sensitive (Adjusted Rand Index = 0.38 between 250\,m and 500\,m grid partitions). (c) Bivariate fabric structure in the building-coverage versus Floor-Area Ratio (FAR) plane, coloured by cluster (compact mid-rise core, coarse-grain large-footprint, low-density peripheral, sparse low-rise fringe).}
+  \label{fig:dendrogram}
+\end{figure}
+
+\FloatBarrier
+\subsection{Heat mechanisms}
+\label{sec:res-heat}
+Summer land-surface temperature varies systematically across fabric
+(Table~\ref{tab:fabric-profiles}): the industrial type is hottest (45.5\,\si{\celsius})
+and the waterfront coolest (41.7\,\si{\celsius}), consistent with the impervious,
+low-vegetation character of the former and the maritime moderation of the latter
+\citep{guo2020ImpactUrban, jeon2023ImpactsUrban}. The explainable-ML attribution is
+deliberately cautious. Under spatial-block cross-validation a morphology-only
+gradient-boosting model has modest but genuine skill ($R^2 \approx 0.09$,
+$\text{RMSE} \approx 1.98\,\si{\celsius}$); adding coastal and topographic context
+roughly triples it ($R^2 \approx 0.27$, $\text{RMSE} \approx 1.78\,\si{\celsius}$;
+learning curves and residuals in Supplementary Figure~\ref{fig:supp-xgb-diagnostics}).
+Regularized linear baselines under the same blocking are revealing: morphology alone is
+weakly but genuinely predictive (Ridge $R^2 \approx 0.04$, Elastic-Net $R^2 \approx 0.04$),
+yet the linear models cannot exploit the geographic context that the tree model
+can. Their full-feature scores fall below a mean baseline (Ridge $R^2 \approx -0.15$,
+Elastic-Net $R^2 \approx -0.12$) because coefficients fitted within spatial blocks
+extrapolate poorly across them. The gap between the non-linear and linear full models is
+direct evidence of strong morphology-context interactions that standard linear
+specifications miss, and it cautions against reading local morphology as a transferable
+thermometer outside its regional landscape. The XGBoost model is trained on the raw
+indicators rather than principal-component scores to keep individual feature attributions
+physically interpretable; because TreeSHAP can distribute credit across collinear
+built-form variables (such as FAR and ground coverage), individual SHAP values are read as
+structural indicators of joint physical mechanisms rather than isolated causal effects.
+SHAP attribution shows why (Figure~\ref{fig:shap}): at this metropolitan scale
+distance to the coast dominates the summer-LST signal, and among morphological
+drivers the leading terms are green-cover fraction (cooling, strongest in peripheral
+expansion at $-0.81$\,\si{\celsius}) and mean building-footprint area (warming, strongest
+in industrial fabric at $+0.40$\,\si{\celsius}), with slope and density also contributing.
+The cautious reading is that form is a secondary, though demonstrably non-trivial, control
+on summer LST once the coastal gradient is accounted for. This tempers the stronger
+morphology-temperature claims made at heritage scales or in inland cities
+\citep{wangZ2025MarginalInteraction, liu2026Nonlinear, li2026BlockGrid} and frames the
+heat layer as screening, not prediction.
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=\textwidth]{shap_synthesis}
+  \caption{Explainable heat-morphology attribution. (a) Global SHAP feature attribution summary beeswarm plot across all urban cells, where each point represents a cell, color indicates the normalized feature value mapped to the unified fabric palette (low teal, high amber), and position along the x-axis shows the signed SHAP impact on LST. (b) Heatmap of directional SHAP impact by fabric stratum (mean signed LST impact, $^\circ$C) using sorted features and matching colormap. Inset at bottom summarizes spatial-block cross-validation performance ($R^2$ and $\text{RMSE}$ for full and morphology-only models).}
+  \label{fig:shap}
+\end{figure}
+
+Beyond primary feature main effects, TreeSHAP interaction diagnostics demonstrate how local vegetative cover and geographic context nonlinearly modulate the thermal penalty of built density (Figure~\ref{fig:explainable-heat-interactions}). Specifically, urban greenness exerts a pronounced buffering effect: in high-coverage grid cells, abundant vegetation substantially suppresses the positive SHAP warming contribution of building coverage, confirming that targeted canopy integration can offset high built-up intensity. Concurrently, the maritime cooling gradient exhibits strong spatial coupling with building volume, where the thermal buffer of coastal proximity rapidly dissipates beyond 3--5\,km inland, leaving high-FAR developments in interior strata disproportionately exposed to elevated summer surface temperatures.
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=\textwidth]{explainable_heat_interactions}
+  \caption{Explainable heat-morphology interaction diagnostics based on the XGBoost + TreeSHAP model (spatial-block cross-validated $R^2 = 0.27$, consistent with screening use rather than prediction). (a) SHAP dependence plot for building coverage coloured by green-cover fraction (mapped to the unified fabric palette), illustrating the moderating effect of urban greenery on built-density warming: the warming SHAP contribution of dense built cover is blunted where green cover is high. (b) SHAP dependence plot for coastal distance coloured by FAR (matching colormap), showing the interaction between maritime cooling and building density, with high-FAR cells warming inland. Solid lines are running medians over binned coverage/distance.}
+  \label{fig:explainable-heat-interactions}
+\end{figure}
+
+\FloatBarrier
+\subsection{Spatial equity}
+\label{sec:res-spatial}
+Adaptation-relevant quantities are strongly spatially clustered rather than random:
+global Moran's $I$ is 0.71 for summer LST, 0.83 for social vulnerability and 0.72
+for the composite adaptation-need score (all $p=0.001$). Local indicators localize
+this structure: significant high-high need clusters (LISA) concentrate in the
+industrial fabric, the waterfront and the apartment-block fabric, and Getis-Ord
+$G_i^{*}$ identifies 843 hot and 819 cold need cells (Figure~\ref{fig:geomap})
+\citep{sanchez2019SpotAnalysis}. On the equity axis, the social-vulnerability proxy is operationalized here from
+age structure alone (elderly
+share and age dependency from the 2024 T\"urkStat ADNKS population register at the
+neighbourhood/\emph{mahalle} level), and read accordingly as a demographic rather
+than a full socioeconomic measure. It is highest in the waterfront fabric (elderly
+share 19.0\%) and lowest in the industrial/logistics fabric (10.5\%); over the full
+census every grid cell falls within a populated \emph{mahalle}, so no demographic
+fallback or imputation is required. The Gini coefficient of the impervious-exposure
+$\times$ vulnerability burden is 0.26, and that burden is itself spatially
+autocorrelated. Uneven adaptation need is geographically concentrated rather than diffuse
+\citep{turner2025Guhvi, neumann2026ClimateJustice} (Figure~\ref{fig:geomap}c,d).
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=\textwidth]{geostats_map}
+  \caption{Spatial structure and distributional inequality of adaptation need over the full urban census
+  ($k$-nearest-neighbour spatial weights, $k=8$). (a) Getis-Ord $G_i^{*}$ identifies 843 hot and 819 cold need cells; (b) Local Moran (LISA) clusters
+  comprise 791 high-high cells concentrated in the industrial fabric (203), waterfront
+  (183) and apartment-block fabric (138), alongside 796 low-low cells and a few spatial
+  outliers (LH/HL). (c) Moran spatial-lag scatterplot of the composite adaptation-need score (global Moran's $I=0.72$, $p=0.001$), points coloured by LISA class and quadrants annotated, confirming that need is strongly clustered rather than diffuse. (d) Lorenz curve of the combined exposure and vulnerability burden (Gini coefficient = 0.26), the callout showing that the top 20\% of cells carry 33\% of the total adaptation burden.}
+  \label{fig:geomap}
+\end{figure}
+
+\FloatBarrier
+\subsection{Adaptation priorities}
+\label{sec:res-priority}
+To filter and prioritize target areas across the five need axes (heat, cooling
+deficit, access deficit, coastal exposure, and social vulnerability), we first
+apply a multi-objective Pareto dominance screen. At the aggregate fabric level, 
+with five axes and only seven fabrics, no fabric is Pareto-dominated 
+(Figure~\ref{fig:priority-synthesis}a), meaning each represents a unique set of 
+vulnerability and exposure trade-offs. Applied instead to the 3{,}777 individual
+cells, the screen becomes highly selective: 223 cells (5.9\%) are
+non-dominated and form the priority frontier (Figure~\ref{fig:priority-synthesis}b).
+This frontier is itself unevenly distributed across fabric types: 33\% of all
+waterfront-transformation cells reach the frontier, the highest rate of any
+fabric, compared to under 2\% of apartment blocks. The cell-level frontier
+membership thus corroborates the need for spatial targeting. Panel (c) shows that
+frontier cells concentrate along the bay front and coastal industrial corridor;
+their median coast distance is 0.62\,km, compared with 4.19\,km among dominated
+cells.
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=\textwidth]{priority_synthesis}
+  \caption{Multi-objective adaptation priority synthesis. (a) Fabric-level priority space in the heat $\times$ cooling-deficit plane (points sized by access deficit and colored by stratum). (b) Cell-level priority space over all urban cells (dominated cells in light grey, non-dominated cells colored by stratum and sized by social vulnerability); the text box lists the five screening objectives. (c) Spatial distribution of all cells across the urban region, with the 223 non-dominated frontier cells colored by stratum and outlined, dominated cells in light grey, the coastline in blue, and a bay-front inset.}
+  \label{fig:priority-synthesis}
+\end{figure}
+
+To resolve the trade-offs among these non-dominated configurations and sort them,
+we rank the fabrics using TOPSIS (Table~\ref{tab:priority}). Priorities are reported
+at the level of the seven planning-oriented strata rather than the four
+unsupervised super-types because the strata are the units in which planning
+documents, district mandates and intervention programmes are actually framed; the
+four-mode clustering is retained as a check on whether the strata over-partition the
+morphometric space (Section~\ref{sec:res-typology}) rather than as the decision unit. This choice is consequential:
+the priority signal is aggregation-dependent. When the same cell-level need axes are aggregated to the four
+unsupervised super-types and re-ranked, the resulting cluster priority order is statistically
+orthogonal to the stratum order (cell-level Spearman $\rho = -0.06$, $p < 0.001$; Supplementary
+Table~\ref{tab:cluster-priority}). The equity inversion is a property of the planning-relevant stratum
+partition, not of the morphometric clustering: the 249 waterfront cells scatter 42\%/33\%/24\% across three
+clusters with a plurality in none, so at the cluster level their distinctive vulnerability and exposure signature is
+diluted and the entropy weighting collapses onto access deficit (0.64) and social vulnerability (0.32) with
+negligible heat weight. The inversion should therefore be read as a decision-frame-dependent finding tied to the
+strata in which planning actually operates, rather than a scale-invariant property of urban form. Under the
+stratum formulation, the
+waterfront transformation fabric emerges as the clear top priority (entropy-weighted
+TOPSIS 0.75; Monte-Carlo mean rank 1.6, interval 1 to 3 over 2{,}000 random weightings). This is notable
+because it is the coolest fabric, but the most socially vulnerable and the most
+coastally exposed. This is the central equity finding: a heat-only reading would have
+de-prioritized exactly the fabric that a vulnerability- and exposure-aware reading
+ranks first. The coastal-exposure component of this result is partly entailed by the
+stratum definition because the waterfront stratum is by construction the closest to the
+coast. The genuinely non-obvious element is that this fabric is also the most
+demographically vulnerable (elderly share 19.0\%, the highest of any stratum) while
+being the coolest, not that it is coastally exposed.
+The ranking is, however, weight-sensitive: Monte-Carlo rank intervals are wide and 
+entropy weighting down-weights heat (which varies little between fabrics), so the 
+priorities are reported with their robustness rather than as a single deterministic 
+order \citep{zhang2024MultiObjective, zhu2025SpongeCities}. The entropy point-estimate
+and the Monte-Carlo distribution can diverge for individual fabrics: the
+apartment-block stratum, for instance, ranks last under the single entropy weighting
+($TOPSIS_\text{ent}=0.09$) yet sits mid-table across the 2{,}000 random weightings
+(equal-weight $TOPSIS_\text{eq}=0.21$; Monte-Carlo mean rank 5.1, interval 3 to 7),
+because entropy weighting concentrates on the few axes with the highest
+between-fabric dispersion and penalizes apartment fabric on those specifically. The
+table is therefore ordered by Monte-Carlo mean rank, the more defensible single
+summary, rather than by the entropy point-estimate, and the tiered reading below
+should be preferred to either ordinal column (Figure~\ref{fig:topsis-robustness}; weight distributions and rank correlations are detailed in Supplementary Figure~\ref{fig:supp-topsis-sensitivity}). 
+To navigate this sensitivity, planners should avoid relying on single ordinal ranks and instead group fabrics into broad priority tiers. 
+For instance, the waterfront transformation and historic core represent a robust high-priority tier across almost all weightings (remaining in ranks 1 to 5), whereas the peripheral expansion exhibits extreme sensitivity (shifting between ranks 1 and 6). 
+This sensitivity indicates that its priority depends heavily on whether decision-makers value access deficits and social vulnerability (which are high in peripheral areas) over physical built density and heat exposure. 
+Therefore, planners must explicitly align TOPSIS weights with their political mandates or funding constraints. High SVI weights suit equity-driven interventions, whereas high coastal-exposure weights suit risk-reduction programs; TOPSIS should not be treated as a single, objective mandate.
+
+\begin{table}[htbp]
+  \centering\footnotesize
+  \caption{Fabric adaptation priority over the full urban census. TOPSIS relative closeness to the ideal solution under equal weighting ($TOPSIS_\text{eq}$) and entropy-based weighting ($TOPSIS_\text{ent}$), along with Monte-Carlo rank statistics over 2{,}000 random weightings (rank 1 = highest priority). Rows are ordered by Monte-Carlo mean rank, the summary least sensitive to any single weighting scheme, so the entropy-weighted column is not monotonic down the table (the apartment-block stratum scores lowest on $TOPSIS_\text{ent}$ but sits mid-distribution across random weightings).}
+  \label{tab:priority}
+  \begin{tabular}{@{}lrrrr@{}}
+    \toprule
+    Fabric stratum & TOPSIS$_\text{eq}$ & TOPSIS$_\text{ent}$ & Mean rank & Rank [p10--p90] \\
+    \midrule
+    Waterfront transformation & 0.64 & 0.75 & 1.6 & 1--3 \\
+    Historic core             & 0.53 & 0.66 & 2.7 & 2--5 \\
+    Peripheral expansion      & 0.46 & 0.40 & 3.0 & 1--6 \\
+    Industrial / logistics    & 0.30 & 0.19 & 4.2 & 2--6 \\
+    Apartment block           & 0.21 & 0.09 & 5.1 & 3--7 \\
+    Hillside / incremental    & 0.17 & 0.13 & 5.7 & 4--7 \\
+    Grid residential          & 0.19 & 0.13 & 5.8 & 5--7 \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=\textwidth]{topsis_robustness}
+  \caption{Adaptation priority ranking sensitivity and spatial targeting. (a) Boxplots of strata rank distributions across 2{,}000 Monte Carlo random weighting simulations, with jittered runs showing density over discrete ranks (1 = highest priority). (b) Cell-level entropy-weighted TOPSIS closeness $C_i$, with the 223 Pareto-frontier cells outlined and the coastline shown in blue. Fabric-level entropy weights are social vulnerability 50.3\%, access deficit 23.8\%, coastal exposure 22.9\%, cooling deficit 2.9\% and heat 0.0\% (rounded).}
+  \label{fig:topsis-robustness}
+\end{figure}
+
+\clearpage

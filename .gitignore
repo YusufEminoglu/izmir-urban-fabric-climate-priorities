@@ -1,0 +1,65 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Caches and IDEs
+.idea/
+.claude/
+.gemini/
+.vscode/
+.pytest_cache/
+.coverage
+htmlcov/
+tmp/
+scratch/
+cache/
+logs/
+reviews/
+restored_pilot13.py
+figs_current/
+
+# Virtual environments
+.venv/
+venv/
+env/
+ENV/
+
+# Large / local raw GIS data & heavy archives
+data/00_external/
+data/01_raw/
+data/02_interim/
+*.gpkg
+*.tif
+*.tiff
+*.geotiff
+*.zip
+*.tar.gz
+*.parquet
+
+# Generated outputs & backups
+outputs/figure_gpkgs/
+outputs/*.zip
+outputs/*.tar.gz
+paper/manuscript/*.tar.gz
+paper/manuscript/src/_backup*
+
+# QGIS autosaves and temporary files
+*.qgz~
+*.qgs~
+*.gpkg-wal
+*.gpkg-shm
+*.gpkg.style
+
+# LaTeX build intermediates
+paper/manuscript/src/*.aux
+paper/manuscript/src/*.log
+paper/manuscript/src/*.bbl
+paper/manuscript/src/*.blg
+paper/manuscript/src/*.fls
+paper/manuscript/src/*.fdb_latexmk
+paper/manuscript/src/*.synctex.gz
+paper/manuscript/src/*.toc
+paper/manuscript/src/*.out
+paper/manuscript/src/*.lot
+paper/manuscript/src/*.lof

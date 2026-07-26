@@ -1,0 +1,7 @@
+Highlights (Sustainable Cities and Society; each ≤ 85 characters)
+
+- Open QGIS workflow links street-scale urban form to climate adaptation priorities
+- Full census of all 3,777 urban cells of the İzmir functional urban region
+- Explainable ML: urban form is a secondary heat control behind the coastal gradient
+- Equity inversion: coolest fabric ranks top priority once vulnerability is weighed
+- Reproducible, parameter-logged, transferable to other coastal Mediterranean cities
