@@ -35,23 +35,15 @@ explainable-urban-resilience-screening/
 │   └── 03_processed/       # Processed cell-level indicators (3,777 cells)
 │       └── cell_indicators.csv
 ├── outputs/
-│   ├── figures/            # High-resolution manuscript figures (fig01 to fig11, fig_s01 to fig_s07)
-│   └── tables/             # Exported statistical summary tables (table01 to table08)
+│   ├── figures/            # High-resolution manuscript figures (figure1.png to figure11.png, figure_s1 to figure_s7)
+│   └── tables/             # Exported statistical summary tables (table1.csv to table8.csv)
 └── scripts/                # Reproducible Python processing pipeline
-    ├── pilot_01_build_grid.py        # Analysis grid construction (250m)
-    ├── pilot_02_enrich.py            # Indicator extraction & spatial joins
-    ├── pilot_03_strata.py            # Planning strata definition
-    ├── pilot_05_indicators.py        # Cell-level indicator synthesis
-    ├── pilot_06_lst.py               # Summer LST satellite processing
-    ├── pilot_07_cluster.py           # Hierarchical morphometric clustering
-    ├── pilot_08_scale_stability.py   # Multi-scale MAUP sensitivity (250m vs 500m)
-    ├── pilot_09_shap.py              # TreeSHAP global feature attribution & heatmap
-    ├── pilot_10_vulnerability.py     # Social vulnerability operationalization
-    ├── pilot_11_priority.py         # TOPSIS ranking & Monte Carlo sensitivity
-    ├── pilot_13_cell_pareto.py       # 5D Pareto frontier extraction & mapping
-    ├── make_elite_morphology_maps.py # High-resolution spatial mapping
-    ├── make_elite_statistical_collage.py # Nonlinear interaction diagnostics
-    └── generate_all_figures.py       # Master figure generation pipeline
+    ├── 01_spatial_grid_processing.py      # Spatial grid construction & indicator synthesis
+    ├── 02_morphometric_typology.py        # Unsupervised morphometric clustering (Figure 6 & Table 1)
+    ├── 03_explainable_heat_attribution.py # TreeSHAP feature attribution & interactions (Figures 7, 8 & Tables 2, 3)
+    ├── 04_spatial_autocorrelation.py      # Spatial autocorrelation & LISA diagnostics (Figure 9 & Table 6)
+    ├── 05_pareto_topsis_prioritization.py # Pareto screening & TOPSIS Monte Carlo robustness (Figures 10, 11 & Tables 4, 5, 8)
+    └── run_reproduction.py                # Master reproduction entry point
 ```
 
 ---
@@ -81,29 +73,29 @@ pip install -r requirements.txt
 
 ## 🚀 Quickstart & Reproduction
 
-To reproduce all figures and statistical tables from the raw indicators:
+To reproduce all manuscript figures (`figure1.png`–`figure11.png`) and summary tables (`table1.csv`–`table8.csv`):
 
 ```bash
-# Run complete figure generation pipeline
-python scripts/generate_all_figures.py
+# Run complete reproduction pipeline
+python scripts/run_reproduction.py
 ```
 
 Individual pipeline stages can be executed standalone:
 ```bash
-# Run hierarchical clustering diagnostic (Figure 6)
-python scripts/pilot_07_cluster.py
+# Stage 1: Spatial grid synthesis
+python scripts/01_spatial_grid_processing.py
 
-# Run TreeSHAP attribution & heatmap (Figure 7)
-python scripts/pilot_09_shap.py
+# Stage 2: Morphometric typology & clustering (Figure 6, Table 1)
+python scripts/02_morphometric_typology.py
 
-# Run non-linear SHAP interaction plots (Figure 8)
-python scripts/make_elite_statistical_collage.py
+# Stage 3: TreeSHAP heat attribution & interactions (Figures 7, 8, Tables 2, 3)
+python scripts/03_explainable_heat_attribution.py
 
-# Run Pareto frontier mapping (Figure 10)
-python scripts/pilot_13_cell_pareto.py
+# Stage 4: Spatial autocorrelation & inequality (Figure 9, Table 6)
+python scripts/04_spatial_autocorrelation.py
 
-# Run TOPSIS Monte Carlo robustness (Figure 11)
-python scripts/make_fig11_topsis_robustness.py
+# Stage 5: Pareto & TOPSIS Monte-Carlo prioritization (Figures 10, 11, Tables 4, 5, 8)
+python scripts/05_pareto_topsis_prioritization.py
 ```
 
 ---
