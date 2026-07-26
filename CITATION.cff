@@ -14,6 +14,7 @@ authors:
     given-names: "Hilmi Evren"
     email: "evren.erdin@deu.edu.tr"
     affiliation: "Dokuz Eylul University"
+    orcid: "https://orcid.org/0000-0002-3350-8930"
 title: "Open-Source Urban Analytics for Climate-Resilience Screening: A Two-Stage Explainable and Robust Prioritization of Urban Fabrics"
 version: "1.0.0"
 doi: "10.5281/zenodo.20753131"

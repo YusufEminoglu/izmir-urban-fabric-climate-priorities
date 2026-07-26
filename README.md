@@ -148,7 +148,7 @@ If you find this codebase or methodology useful in your research, please cite:
 
 - **Hilmi Evren Erdin**  
   Department of City and Regional Planning, Dokuz Eylul University, İzmir, Türkiye  
-  📧 **Email:** [evren.erdin@deu.edu.tr](mailto:evren.erdin@deu.edu.tr)
+  📧 **Email:** [evren.erdin@deu.edu.tr](mailto:evren.erdin@deu.edu.tr) | 🆔 **ORCID:** [0000-0002-3350-8930](https://orcid.org/0000-0002-3350-8930)
 
 ---
 
