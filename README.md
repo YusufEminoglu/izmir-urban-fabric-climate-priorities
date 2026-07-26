@@ -35,11 +35,8 @@ explainable-urban-resilience-screening/
 │   └── 03_processed/       # Processed cell-level indicators (3,777 cells)
 │       └── cell_indicators.csv
 ├── outputs/
-│   ├── figures/            # Generated high-resolution manuscript figures
-│   └── tables/             # Exported statistical summary tables (CSV)
-├── qgis/
-│   └── README.md           # QGIS PlanX processing plugin workflow guide
-├── references/             # Verified literature mapping index
+│   ├── figures/            # High-resolution manuscript figures (fig01 to fig11, fig_s01 to fig_s07)
+│   └── tables/             # Exported statistical summary tables (table01 to table08)
 └── scripts/                # Reproducible Python processing pipeline
     ├── pilot_01_build_grid.py        # Analysis grid construction (250m)
     ├── pilot_02_enrich.py            # Indicator extraction & spatial joins
