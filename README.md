@@ -6,7 +6,10 @@
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.20753131.svg)](https://doi.org/10.5281/zenodo.20753131)
 [![ORCID](https://img.shields.io/badge/ORCID-0009--0005--6000--2934-A6CE39?logo=orcid&logoColor=white)](https://orcid.org/0009-0005-6000-2934)
 
-**Author:** **Yusuf Eminoglu** (*Dokuz Eylul University*) &nbsp;|&nbsp; 📧 [yusuf.eminoglu@deu.edu.tr](mailto:yusuf.eminoglu@deu.edu.tr) &nbsp;|&nbsp; 🆔 [ORCID: 0009-0005-6000-2934](https://orcid.org/0009-0005-6000-2934)
+**Authors:** **Yusuf Eminoglu**¹✉, **Halil Topcu**², **Hilmi Evren Erdin**¹  
+*¹ Department of City and Regional Planning, Dokuz Eylul University, İzmir, Türkiye*  
+*² Graduate School of Natural and Applied Sciences, Urban Design Program, İzmir Demokrasi University, İzmir, Türkiye*  
+✉ *Corresponding author:* [yusuf.eminoglu@deu.edu.tr](mailto:yusuf.eminoglu@deu.edu.tr)
 
 This repository provides the open-source code, spatial analytical pipeline, and processed data for the metropolitan-scale climate-resilience screening framework applied to the İzmir functional urban region.
 
@@ -119,12 +122,12 @@ All analytical steps rely on open-source, publicly accessible datasets:
 If you find this codebase or methodology useful in your research, please cite:
 
 ```bibtex
-@misc{eminoglu2026planx,
-  author       = {Eminoglu, Yusuf},
-  title        = {{PlanX}},
+@misc{eminoglu2026resilience,
+  author       = {Eminoglu, Yusuf and Topcu, Halil and Erdin, Hilmi Evren},
+  title        = {{Open-Source Urban Analytics for Climate-Resilience Screening: A Two-Stage Explainable and Robust Prioritization of Urban Fabrics}},
   year         = {2026},
   month        = {6},
-  version      = {v4.10},
+  version      = {v1.0.0},
   publisher    = {Zenodo},
   doi          = {10.5281/zenodo.20753131},
   url          = {https://doi.org/10.5281/zenodo.20753131}
@@ -133,13 +136,19 @@ If you find this codebase or methodology useful in your research, please cite:
 
 ---
 
-## 👤 Author & Contact
+## 👥 Authors & Affiliations
 
-**Yusuf Eminoglu**  
-Department of City and Regional Planning, Faculty of Architecture, Dokuz Eylul University, İzmir, Türkiye  
-- 📧 **Email:** [yusuf.eminoglu@deu.edu.tr](mailto:yusuf.eminoglu@deu.edu.tr)  
-- 🆔 **ORCID:** [0009-0005-6000-2934](https://orcid.org/0009-0005-6000-2934)  
-- 🌐 **GitHub:** [@YusufEminoglu](https://github.com/YusufEminoglu)  
+- **Yusuf Eminoglu** *(Corresponding Author)*  
+  Department of City and Regional Planning, Dokuz Eylul University, İzmir, Türkiye  
+  📧 **Email:** [yusuf.eminoglu@deu.edu.tr](mailto:yusuf.eminoglu@deu.edu.tr) | 🆔 **ORCID:** [0009-0005-6000-2934](https://orcid.org/0009-0005-6000-2934) | 🌐 **GitHub:** [@YusufEminoglu](https://github.com/YusufEminoglu)
+
+- **Halil Topcu**  
+  Graduate School of Natural and Applied Sciences, Urban Design Program, İzmir Demokrasi University, İzmir, Türkiye  
+  🆔 **ORCID:** [0009-0009-3366-179X](https://orcid.org/0009-0009-3366-179X)
+
+- **Hilmi Evren Erdin**  
+  Department of City and Regional Planning, Dokuz Eylul University, İzmir, Türkiye  
+  📧 **Email:** [evren.erdin@deu.edu.tr](mailto:evren.erdin@deu.edu.tr)
 
 ---
 
