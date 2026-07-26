@@ -4,6 +4,9 @@
 [![Python 3.12](https://img.shields.io/badge/Python-3.12-blue.svg)](https://www.python.org/)
 [![QGIS 3.34+](https://img.shields.io/badge/QGIS-3.34%2B-green.svg)](https://qgis.org/)
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.20753131.svg)](https://doi.org/10.5281/zenodo.20753131)
+[![ORCID](https://img.shields.io/badge/ORCID-0009--0005--6000--2934-A6CE39?logo=orcid&logoColor=white)](https://orcid.org/0009-0005-6000-2934)
+
+**Author:** **Yusuf Eminoglu** (*Dokuz Eylul University*) &nbsp;|&nbsp; 📧 [yusuf.eminoglu@deu.edu.tr](mailto:yusuf.eminoglu@deu.edu.tr) &nbsp;|&nbsp; 🆔 [ORCID: 0009-0005-6000-2934](https://orcid.org/0009-0005-6000-2934)
 
 This repository provides the open-source code, spatial analytical pipeline, and processed data for the metropolitan-scale climate-resilience screening framework applied to the İzmir functional urban region.
 
@@ -127,6 +130,16 @@ If you find this codebase or methodology useful in your research, please cite:
   url          = {https://doi.org/10.5281/zenodo.20753131}
 }
 ```
+
+---
+
+## 👤 Author & Contact
+
+**Yusuf Eminoglu**  
+Department of City and Regional Planning, Faculty of Architecture, Dokuz Eylul University, İzmir, Türkiye  
+- 📧 **Email:** [yusuf.eminoglu@deu.edu.tr](mailto:yusuf.eminoglu@deu.edu.tr)  
+- 🆔 **ORCID:** [0009-0005-6000-2934](https://orcid.org/0009-0005-6000-2934)  
+- 🌐 **GitHub:** [@YusufEminoglu](https://github.com/YusufEminoglu)  
 
 ---
 
