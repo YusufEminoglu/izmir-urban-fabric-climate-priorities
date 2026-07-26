@@ -1,0 +1,8 @@
+stratum_name,n_cells,n_frontier,share_of_frontier,frontier_rate
+waterfront_transformation,249,83,0.372,0.333
+industrial_logistics,604,76,0.341,0.126
+peripheral_expansion,485,18,0.081,0.037
+apartment_block,965,17,0.076,0.018
+grid_residential,491,11,0.049,0.022
+hillside_incremental,873,9,0.04,0.01
+historic_core,110,9,0.04,0.082

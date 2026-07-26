@@ -28,17 +28,20 @@ scratch/
 cache/
 logs/
 
-# EXCLUDE UNPUBLISHED EDITABLE MANUSCRIPT LATEX SOURCE & INTERNAL DRAFT NOTES
-# (Ensures compliance with journal open-science & double-blind policies)
+# EXCLUDE INTERNAL DRAFTS, MANUSCRIPT SOURCES, CONGRESS NOTES, AND REVIEWS
 paper/
 abstracts/
 reviews/
-docs/revision/
-docs/submission/
+docs/
+references/
+qgis/
+src/
 AGENTS.md
 project_guide.md
 restored_pilot13.py
 figs_current/
+data/README.md
+outputs/README.md
 
 # Heavy / local raw GIS raster & vector data (reproducible via scripts)
 data/00_external/
@@ -63,3 +66,9 @@ outputs/*.tar.gz
 *.gpkg-wal
 *.gpkg-shm
 *.gpkg.style
+
+# Internal review build scripts
+scripts/build_icus2026_*
+scripts/check_citations.py
+scripts/convert_bbb_layers.py
+scripts/verify_unchecked_refs.py

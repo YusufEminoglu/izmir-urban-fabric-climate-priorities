@@ -1,0 +1,16 @@
+feature,mean_abs_shap
+dist_coast_km,0.6462038
+f_green,0.37783277
+dist_core_km,0.3347989
+bld_mean_area,0.30366662
+slope_mean,0.2606499
+bld_cov,0.1560798
+mean_floors,0.15491779
+str_dens_800,0.11837728
+bld_mean_shape,0.10311337
+mean_seg_800,0.09884594
+far,0.09177923
+orient_ent_800,0.07086187
+node_dens_800,0.07019748
+bld_orient,0.0648917
+inter_dens_800,0.05390577
