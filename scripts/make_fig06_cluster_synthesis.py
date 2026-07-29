@@ -11,7 +11,7 @@ from sklearn.decomposition import PCA
 from sklearn.metrics import silhouette_score, silhouette_samples
 from PIL import Image, ImageDraw, ImageFont
 
-PROJ = r"C:\Users\YE\PyCharmMiscProject\icus2026_planx_urban_resilience"
+PROJ = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 IND = os.path.join(PROJ, "data", "03_processed", "cell_indicators.csv")
 OUTC = os.path.join(PROJ, "data", "03_processed", "cell_clusters.csv")
 FIGDIR = os.path.join(PROJ, "outputs", "figures")

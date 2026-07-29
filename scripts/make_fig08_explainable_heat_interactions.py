@@ -9,7 +9,7 @@ import xgboost as xgb
 import shap
 from PIL import Image, ImageDraw, ImageFont
 
-PROJ = r"C:\Users\YE\PyCharmMiscProject\icus2026_planx_urban_resilience"
+PROJ = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 IND_PATH = os.path.join(PROJ, "data", "03_processed", "cell_indicators.csv")
 OUT_FIG = os.path.join(PROJ, "outputs", "figures", "figure8.png")
 
